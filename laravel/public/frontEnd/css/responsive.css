@@ -1,0 +1,1560 @@
+
+@media (max-width: 575.98px) {
+    body{
+        overflow-x: hidden;
+    }
+
+    .banner_content{
+        width: 100%;
+    }
+
+    .menu_list{
+        display: none;
+        opacity: 1;
+        background: #eee;
+        padding: 20px 30px;
+    }
+    .changeBtn, .changeBtn_one{
+        font-size: 65px;
+    }
+    .timeLine-11{
+        opacity: 1 !important;
+    }
+    .banner_text .banner_left_link, .banner_text .banner_right_link {
+        position: static;
+        transform: translateX(0);
+        margin-top: 38px;
+        border: 1px solid #ddd;
+        padding: 15px 38px;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+
+    .banner_text .banner_left_link:hover, .banner_text .banner_right_link:hover{
+        background: #444;
+        color: #fff;
+    }
+
+    .home-page-slide{
+        padding: 15px;
+    }
+    .home-page-slide::after {
+        width: 95%;
+        height: 89%;
+    }
+    .home-page-slide::before {
+        width: 99%;
+        height: 91%;
+    }
+
+    .afWarMenu .menu_list{
+        background: #000 !important;
+    }
+
+    .left_line,
+    .right_line{
+        display: none;
+    }
+
+    .banner_main_text p {
+        color: #3F3D44;
+        font-size: 16px;
+        padding-bottom: 10px;
+        font-family: nato-reg;
+        padding: 25px 0;
+    }
+
+
+    .banner_text .banner_left_link,
+    .home_line,
+    .banner_text .banner_right_link,
+    .banner_main_text,
+    .banner_main_text,
+    .logo_title,
+    .history_img img,
+    .know_content,
+    .right_content,
+    .after_war_content{
+        opacity: 1 !important;
+    }
+
+    .pagination {
+        padding: 29px 0 120px 0;
+    }
+
+    .right_content a::after{
+        display: none;
+    }
+
+    .afterwar_banner_image{
+        box-shadow: none;
+        overflow: unset;
+    }
+
+    .left_inner_content h2{
+        padding-top: 40px;
+    }
+
+    .post_image img{
+        border-radius: 0;
+    }
+
+    .post_image{
+        max-height: 100% !important;
+    }
+
+
+
+    .right_content{
+        color: #222;
+        transform: translate(0,0) !important;
+        position: static !important;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 30px;
+    }
+
+    .afWarMenu{
+        position: static;
+    }
+
+    .afterwar_round_image{
+        width: 380px;
+        position: absolute;
+    }
+    .afterwar_round_image {
+	width: 740px;
+	right: 0;
+	top: 0;
+	transform: translate(0, 0);
+	position: static;
+	 width: 100%;
+}
+ 
+
+     .image_layer_3 {
+	width: 372px;
+	height: 350px;
+	border-radius: 50%;
+	background: #ECE2DA;
+    position: relative;
+    margin: 0 auto;
+     }
+    .image_layer_1{
+        width: 350px;
+        height: 350px;
+    }
+    .image_layer_2{
+        width: 360px;
+        height: 340px;
+    }
+
+
+    .detail_banner_text{
+        width: 100%;
+    }
+    .detail_banner_text h1{
+        font-size: 30px;
+    }
+    .detail_page .menu_list{
+        padding: 20px 50px;
+        top: 80px;
+        z-index: 99;
+    }
+    .post_content h2{
+        font-size: 22px;
+    }
+
+
+    .detail_page .menu_list ul li{
+        line-height: 50px;
+    }
+    .shape {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 120px;
+        z-index: 999;
+        width: 150% !important;
+        transform: translateX(-50%);
+        left: 50%;
+    }
+
+    .post_content{
+        transform: translateX(0) !important;
+    }
+
+
+    .know_main_image{
+        position: static;
+        margin: 0 auto;
+        transform: translateY(0);
+        width: 90%;
+        height: auto;
+    }
+    .know_content p {
+        font-size: 20px;
+        padding-bottom: 40px;
+        padding: 0 20px 40px 20px;
+    }
+
+    .know_content h2::after{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .know_content ul li{
+        display: inline-block;
+    }
+    .know_content ul li a {
+        font-size: 16px !important;
+        color: #3F3D44;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        padding: 10px 15px;
+        border-radius: 5px;
+    }
+
+    .know_content ul li a:hover{
+        background: #222;
+        color: #fff;
+    }
+    
+    .know_content{
+        position: static;
+        transform: translateY(0);
+        padding: 40px 0 80px 0;
+        text-align: center;
+        width: 100% !important;
+    }
+
+    
+    .banner_text{
+        width: 90%;
+        height: 300px;
+        text-align: center;
+    }
+    .banner_main_text h2{
+        font-size: 31px;
+    }
+    .banner_img{
+        opacity: 1;
+    }
+
+    .w-center{
+        display: flex;
+        justify-content: center;
+
+    }
+    .banner_part .row{
+        height: 70%;
+    }
+    .banner_part{
+        transform: translateX(0);
+    }
+
+
+    .banner_text a{
+        font-size: 30px;
+    }
+
+    .left_line{
+        top: 60%;
+        width: 200px;
+        left: -250px;
+    }
+
+    .right_line{
+        top: 60%;
+        width: 200px;
+        right: -250px;
+    }
+
+    .banner_main_text {
+        position: static;
+        bottom: -33px;
+        text-align: center;
+        opacity: 0;
+        padding-top: 42px;
+        min-width: 100%;
+        padding-bottom: 100px;
+      
+        transform: translateX(0);
+    }
+
+    .image_layer_1{
+        width: 305px;
+        height: 290px;
+    }
+    .image_layer_2 {
+        width: 323px;
+        height: 288px;
+    }
+
+    .image_layer_3{
+        width: 330px;
+        height: 280px;
+    }
+  
+ 
+
+    .right_content {
+        top: 10%;
+        right: 6%;
+        max-width: 478px;
+        /* background: gainsboro; */
+        transform: translate(-138px , -50%);
+        position: absolute;
+    }
+    .right_content p{
+        font-size: 16px;
+    }
+
+    .afterwar_banner_image{
+        height: 100%;
+    }
+
+    .left_inner_content a::after,
+    .post_content a::after,
+    .pagination p::after{
+        width: 100%;
+    }
+
+    .left_inner_content{
+        padding-left: 0;
+        padding-bottom: 100px;
+        margin-bottom: 0;
+    }
+
+
+    .left_inner_content h2{
+        font-size: 35px;
+    }
+    
+
+
+  
+     .order-0{
+         order: -1;
+     }
+
+     .left_content_bottom{
+         opacity: 1;
+     }
+
+
+    .history_content p{
+        padding-bottom: 30px;
+    }
+    .history_content{
+        width: 380px;
+    }
+
+    .know_content{
+        width: 380px;
+    }
+
+    .history_content{
+        position: static;
+        transform: translateY(0);
+        width: 100%;
+        opacity: 1;
+        padding: 40px 0 80px 0;
+    }
+
+    .history_content p{
+        font-size: 16px;
+    }
+
+    .history_content ul li a{
+        font-size: 18px;
+    }
+
+    .history_main_image{
+        width: 500px;
+        height: 500px;
+    }
+
+    .know_main_image{
+        position: static;
+        margin: 0 auto;
+        transform: translateY(0);
+    }
+    .know_content h2::after{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .know_content ul li{
+        display: inline-block;
+    }
+    .know_content ul li a {
+        font-size: 20px;
+        color: #3F3D44;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .know_content ul li a:hover{
+        background: #222;
+        color: #fff;
+    }
+    
+    .know_content{
+        position: static;
+        transform: translateY(0);
+        padding: 40px 0 80px 0;
+        text-align: center;
+        width: 100% !important;
+    }
+
+
+    .history_content ul li {
+        display: inline-block;
+        line-height: 69px;
+    }
+
+    .history_content ul li a{
+        line-height: 40px;
+        display: inline-block;
+        border: 1px solid #ddd;
+        padding: 5px 24px;
+        border-radius: 5px;
+    }
+    .history_content ul li a:hover{
+        background: #222;
+        color: #fff;
+    }
+    .history_content h2{
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    .history_content p {
+        font-size: 16px;
+        padding: 22px 9px;
+        text-align: center;
+    }
+    .history_content h2::after{
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+
+    .history_content p{
+        font-size: 16px;
+    }
+
+    .history_content ul li a{
+        font-size: 18px;
+    }
+
+    .history_main_image {
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+        position: static;
+        transform: translateX(0);
+    }
+
+   
+ }
+
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    body{
+        overflow-x: hidden;
+    }
+
+
+
+    .menu_list{
+        display: none;
+        opacity: 1;
+        background: #eee;
+        padding: 20px 30px;
+    }
+
+    .afWarMenu .menu_list{
+        background: #000;
+    }
+
+    .timeLine-11{
+        opacity: 1 !important;
+    }
+    .banner_text .banner_left_link, .banner_text .banner_right_link {
+        position: static;
+        transform: translateX(0);
+        margin-top: 38px;
+        border: 1px solid #ddd;
+        padding: 15px 38px;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+
+    .banner_text .banner_left_link:hover, .banner_text .banner_right_link:hover{
+        background: #444;
+        color: #fff;
+    }
+    
+
+    .home-page-slide{
+        padding: 15px;
+    }
+    .home-page-slide::after {
+        width: 95%;
+        height: 89%;
+    }
+    .home-page-slide::before {
+        width: 99%;
+        height: 91%;
+    }
+
+    .left_line,
+    .right_line{
+        display: none;
+    }
+
+    .banner_main_text p {
+        color: #3F3D44;
+        font-size: 16px;
+        padding-bottom: 10px;
+        font-family: nato-reg;
+        padding: 25px 0;
+    }
+    .changeBtn, .changeBtn_one{
+        transform: translateX(0);
+        margin-right: 0;
+    }
+    .changeBtn_one{
+        transform: rotate(180deg);
+    }
+
+
+    .banner_text .banner_left_link,
+    .home_line,
+    .banner_text .banner_right_link,
+    .banner_main_text,
+    .banner_main_text,
+    .logo_title,
+    .history_img img,
+    .history_content,
+    .know_content,
+    .right_content,
+    .after_war_content{
+        opacity: 1 !important;
+    }
+
+    .right_content a::after{
+        display: none;
+    }
+
+    .afterwar_banner_image{
+        box-shadow: none;
+        overflow: unset;
+    }
+
+    .left_inner_content h2{
+        padding-top: 40px;
+    }
+
+    .post_image img{
+        border-radius: 0;
+    }
+
+    .post_image{
+        max-height: 100% !important;
+    }
+
+
+
+    .right_content{
+        color: #222;
+        transform: translate(0,0) !important;
+        position: static !important;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 30px;
+    }
+
+    .afWarMenu{
+        position: static;
+    }
+
+   
+    .afterwar_round_image {
+	width: 740px;
+	right: 0;
+	top: 0;
+	transform: translate(0, 0);
+	position: static;
+	 width: 100%;
+}
+
+     .image_layer_3 {
+	width: 372px;
+	height: 350px;
+	border-radius: 50%;
+	background: #ECE2DA;
+    position: relative;
+    margin: 0 auto;
+     }
+    .image_layer_1{
+        width: 350px;
+        height: 350px;
+    }
+    .image_layer_2{
+        width: 360px;
+        height: 340px;
+    }
+
+
+
+    
+
+    .detail_page .menu_list{
+        padding: 20px 50px;
+        top: 80px;
+    }
+
+    .detail_page .menu_list ul li{
+        line-height: 50px;
+    }
+    .shape {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 220px;
+        z-index: 999;
+        width: 150% !important;
+        transform: translateX(-50%);
+        left: 50%;
+    }
+
+    .post_content{
+        transform: translateX(0) !important;
+    }
+
+
+    .know_main_image{
+        position: static;
+        margin: 0 auto;
+        transform: translateY(0);
+        width: 450px;
+        height: auto;
+    }
+    .know_content p {
+        font-size: 20px;
+        padding-bottom: 40px;
+        padding: 0 44px 50px 50px;
+    }
+
+
+    .know_content h2::after{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .know_content ul li{
+        display: inline-block;
+    }
+    .know_content ul li a {
+        font-size: 20px;
+        color: #3F3D44;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .know_content ul li a:hover{
+        background: #222;
+        color: #fff;
+    }
+    
+    .know_content{
+        position: static;
+        transform: translateY(0);
+        padding: 40px 0 80px 0;
+        text-align: center;
+        width: 100% !important;
+    }
+
+    .history_content{
+        width: 100% !important;
+        padding: 40px 0 80px 0;
+        text-align: center;
+    }
+    .history_content ul li{
+        display: inline-block;
+    }
+
+    .history_content ul li a{
+        line-height: 40px;
+        display: inline-block;
+        border: 1px solid #ddd;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .history_content ul li a:hover{
+        background: #222;
+        color: #fff;
+    }
+    .history_content h2{
+        margin-bottom: 25px;
+    }
+    .history_content p {
+        font-size: 16px;
+        padding: 22px 65px;
+    }
+    .history_content h2::after{
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+
+    .history_content p{
+        font-size: 16px;
+    }
+
+
+    .history_main_image{
+        position: static;
+        transform: translateX(0);
+        margin: 0 auto;
+    }
+
+
+    
+    .banner_text{
+        width: 350px;
+        height: 350px;
+        text-align: center;
+    }
+    .banner_img{
+        opacity: 1;
+    }
+
+    .w-center{
+        display: flex;
+        justify-content: center;
+
+    }
+    .banner_part .row{
+        height: 70%;
+    }
+    .banner_part{
+        transform: translateX(0);
+    }
+
+
+    .banner_text a{
+        font-size: 30px;
+    }
+
+    .left_line{
+        top: 60%;
+        width: 200px;
+        left: -250px;
+    }
+
+    .right_line{
+        top: 60%;
+        width: 200px;
+        right: -250px;
+    }
+
+    .banner_main_text {
+        position: static;
+        bottom: -33px;
+        text-align: center;
+        opacity: 0;
+        padding-top: 42px;
+        min-width: 100%;
+        padding-bottom: 100px;
+      
+        transform: translateX(0);
+    }
+
+  
+
+
+    .right_content {
+        top: 10%;
+        right: 6%;
+        max-width: 478px;
+        /* background: gainsboro; */
+        transform: translate(-138px , -50%);
+        position: absolute;
+    }
+    .right_content p{
+        font-size: 16px;
+    }
+
+    .afterwar_banner_image{
+        height: auto;
+    }
+
+    .post_content h2{
+        font-size: 30px;
+    }
+
+    .left_inner_content{
+        padding-left: 0;
+        padding-bottom: 100px;
+        margin-bottom: 0;
+    }
+
+
+
+  
+     .order-0{
+         order: -1;
+     }
+
+     .left_content_bottom{
+         opacity: 1;
+     }
+
+
+
+    .history_content p{
+        padding-bottom: 30px;
+    }
+    .history_content{
+        width: 380px;
+    }
+
+    .history_content{
+        position: static;
+        transform: translateY(0);
+    }
+
+    .history_content p{
+        font-size: 16px;
+    }
+
+    .history_content ul li a{
+        font-size: 18px;
+    }
+
+    .history_main_image{
+        width: 500px;
+        height: 500px;
+    }
+
+
+
+   
+
+    
+ }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    body{
+        overflow-x: hidden;
+    }
+
+    .right_content{
+        max-width: 450px;
+    }
+
+    .left_inner_content{
+        margin-bottom: 100px;
+    }
+
+    
+
+    .know_content p {
+        font-size: 20px;
+        padding-bottom: 40px;
+        padding: 0 44px 50px 50px;
+    }
+    .menu_list{
+        display: none;
+        opacity: 1;
+        background: #eee;
+        padding: 20px 30px;
+    }
+    .afWarMenu .menu_list{
+        background: #000;
+    }
+
+    .timeLine-11{
+        opacity: 1 !important;
+    }
+
+      .changeBtn, .changeBtn_one{
+        transform: translateX(0);
+        margin-right: 0;
+    }
+
+    .changeBtn_one{
+        transform: rotate(180deg);
+    }
+
+    .home-page-slide{
+        padding: 15px;
+    }
+    .home-page-slide::after {
+        width: 95%;
+        height: 89%;
+    }
+    .home-page-slide::before {
+        width: 99%;
+        height: 91%;
+    }
+
+    .banner_text .banner_left_link,
+    .home_line,
+    .banner_text .banner_right_link,
+    .banner_main_text,
+    .banner_main_text,
+    .logo_title,
+    .history_img img,
+    .history_content,
+    .know_content,
+    .after_war_content,
+    .right_content{
+        opacity: 1 !important;
+    }
+
+
+
+    .detail_page .menu_list{
+        padding: 20px 50px;
+        top: 80px;
+    }
+
+    .detail_page .menu_list ul li{
+        line-height: 50px;
+    }
+    .shape {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 220px;
+        z-index: 999;
+        width: 150% !important;
+        transform: translateX(-50%);
+        left: 50%;
+    }
+
+    .post_content{
+        transform: translateX(0) !important;
+    }
+
+    .text_detail h2{
+        padding: 50px 0;
+    }
+
+    .know_main_image{
+        position: static;
+        margin: 0 auto;
+        transform: translateY(0);
+    }
+    .know_content h2::after{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .know_content ul li{
+        display: inline-block;
+    }
+    .know_content ul li a {
+        font-size: 20px;
+        color: #3F3D44;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .know_content ul li a:hover{
+        background: #222;
+        color: #fff;
+    }
+    
+    .know_content{
+        position: static;
+        transform: translateY(0);
+        padding: 40px 0 80px 0;
+        text-align: center;
+        width: 100% !important;
+    }
+
+    .banner_text .banner_right_link{
+        transform: translateX(-39px);
+    }
+    
+    .banner_text{
+        width: 350px;
+        height: 350px;
+    }
+    .banner_img{
+        opacity: 1;
+    }
+
+    .w-center{
+        display: flex;
+        justify-content: center;
+
+    }
+    .banner_part .row{
+        height: 70%;
+    }
+    .banner_part{
+        transform: translateX(0);
+    }
+
+
+    .banner_text a{
+        font-size: 30px;
+    }
+
+    .left_line{
+        top: 60%;
+        width: 200px;
+        left: -250px;
+    }
+
+    .right_line{
+        top: 60%;
+        width: 200px;
+        right: -250px;
+    }
+
+    .banner_main_text {
+        position: static;
+        bottom: -33px;
+        text-align: center;
+        opacity: 0;
+        padding-top: 42px;
+        min-width: 600px;
+        padding-bottom: 100px;
+      
+        transform: translateX(-25%);
+    }
+
+    .right_content a::after{
+        display: none;
+    }
+
+    .afterwar_banner_image{
+        box-shadow: none;
+        overflow: unset;
+        height: auto;
+    }
+
+    .left_inner_content h2{
+        padding-top: 40px;
+    }
+
+    .post_image img{
+        border-radius: 0;
+    }
+
+    .post_image{
+        max-height: 100% !important;
+    }
+
+
+
+    .right_content{
+        color: #222;
+        transform: translate(0,0) !important;
+        position: static !important;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 30px;
+    }
+
+    .afWarMenu{
+        position: static;
+    }
+
+   
+    .afterwar_round_image {
+	width: 740px;
+	right: 0;
+	top: 0;
+	transform: translate(0, 0);
+	position: static;
+	 width: 100%;
+}
+
+     .image_layer_3 {
+	width: 372px;
+	height: 350px;
+	border-radius: 50%;
+	background: #ECE2DA;
+    position: relative;
+    margin: 0 auto;
+     }
+    .image_layer_1{
+        width: 350px;
+        height: 350px;
+    }
+    .image_layer_2{
+        width: 360px;
+        height: 340px;
+    }
+    
+
+
+  
+     .order-0{
+         order: -1;
+     }
+
+     .left_content_bottom{
+         opacity: 1;
+     }
+
+
+    .history_content p{
+        padding-bottom: 30px;
+    }
+    .history_content{
+        width: 380px;
+    }
+
+
+    .history_content{
+        position: static;
+        width: 100%;
+        padding: 40px 0 80px 0;
+        text-align: center;
+        transform: translateY(0);
+    }
+    .history_content ul li{
+        display: inline-block;
+    }
+
+    .history_content ul li a{
+        line-height: 40px;
+        display: inline-block;
+        border: 1px solid #ddd;
+        padding: 5px 24px;
+        border-radius: 5px;
+    }
+    .history_content ul li a:hover{
+        background: #222;
+        color: #fff;
+    }
+    .history_content h2{
+        margin-bottom: 25px;
+    }
+    .history_content p {
+        font-size: 16px;
+        padding: 22px 65px;
+    }
+    .history_content h2::after{
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+
+    .history_content p{
+        font-size: 16px;
+    }
+
+    .history_content ul li a{
+        font-size: 18px;
+    }
+
+    .history_main_image{
+        width: 500px;
+        height: 500px;
+        position: static;
+        transform: translate(0);
+        margin: 0 auto;
+    }
+
+
+   
+
+
+ }
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    body{
+        overflow-x: hidden;
+    }
+    .banner_text{
+        width: 350px;
+        height: 350px;
+    }
+    .history_content h2{
+        margin-bottom: 45px;
+    }
+    .banner_img{
+        opacity: 1;
+    }
+
+    .w-center{
+        display: flex;
+        justify-content: center;
+
+    }
+    .banner_part .row{
+        height: 70%;
+    }
+    .banner_part{
+        transform: translateX(0);
+    }
+
+    .home-page-slide{
+        padding: 15px;
+    }
+    .home-page-slide::after {
+        width: 95%;
+        height: 89%;
+    }
+    .home-page-slide::before {
+        width: 99%;
+        height: 91%;
+    }
+
+    .banner_text a{
+        font-size: 30px;
+    }
+
+    .left_line{
+        top: 60%;
+        width: 200px;
+        left: -250px;
+    }
+
+    .right_line{
+        top: 60%;
+        width: 200px;
+        right: -250px;
+    }
+
+    .banner_main_text {
+        position: static;
+        bottom: -33px;
+        text-align: center;
+        opacity: 0;
+        padding-top: 42px;
+        min-width: 600px;
+        padding-bottom: 100px;
+      
+        transform: translateX(-25%);
+    }
+
+    .image_layer_1{
+        width: 350px;
+        height: 350px;
+    }
+    .image_layer_2{
+        width: 360px;
+        height: 340px;
+    }
+
+    .image_layer_3{
+        width: 380px;
+        height: 330px;
+        transform: scale(1.7);
+    }
+
+    .afWarMenu{
+        position: static;
+    }
+
+    .afterwar_round_image {
+        width: 740px;
+        right: 5%;
+        top: 120px;
+        transform: translate(50%, 0);
+        position: absolute;
+        width: 100%;
+    }
+
+    .after_war_content {
+        opacity: 0;
+        padding-top: 100vh;
+    }
+
+
+.right_content{
+    color: #222;
+    transform: translate(0,0) !important;
+    position: static !important;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 30px;
+    opacity: 1;
+    max-width: 500px;
+    display: none;
+}
+
+.right_content a::after{
+    display: none;
+}
+    .right_content p{
+        font-size: 16px;
+    }
+
+    .afterwar_banner_image{
+        height: 400px;
+    }
+
+    .left_inner_content{
+        padding-left: 0;
+        padding-bottom: 100px;
+        margin-bottom: 0;
+    }
+
+
+    .left_inner_content h2{
+        font-size: 35px;
+    }
+    
+
+
+    .no-flex {
+        flex: 95%;
+        max-width: 76%;
+        opacity: 1;
+    } 
+
+     .order-0{
+         order: -1;
+     }
+
+     .left_content_bottom{
+         opacity: 1;
+     }
+
+ 
+
+     .post_image{
+         max-height: 100%;
+     }
+
+     .post_content {
+        font-family: arial;
+        position: a;
+        transform: translateX(126px);
+    }
+
+    .more_article{
+        margin-top: 280px;
+    }
+
+    .history_content p{
+        padding-bottom: 30px;
+    }
+    .history_content{
+        width: 380px;
+    }
+
+    .know_content{
+        width: 380px;
+    }
+    .post_image img {
+        border-top-right-radius: 270px;
+        border-bottom-right-radius: 270px;
+    }
+
+
+    .history_content p{
+        font-size: 16px;
+    }
+
+    .history_content ul li a{
+        font-size: 18px;
+    }
+
+    .history_main_image{
+        width: 500px;
+        height: 500px;
+    }
+
+    .know_main_image{
+        width: 500px;
+        height: 500px;
+    }
+
+   
+
+
+
+ }
+
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+  
+    .banner_part{
+        transform: translate(0);
+    }
+
+    .banner_text{
+        width: 650px;
+    }
+
+    .w-center{
+        display: flex;
+        justify-content: center;
+    }
+    body{
+        overflow-x: hidden;
+    }
+
+    .banner_text a{
+        font-size: 30px;
+    }
+    .left_line{
+        width: 200px;
+        left: -250px;
+    }
+    .right_line{
+        width: 200px;
+        right: -250px;
+    }
+
+    .banner_main_text h2{
+        font-size: 30px;
+    }
+
+    .banner_main_text p{
+        font-size: 16px;
+    }
+    .read_more_btn{
+    font-size: 18px !important;
+    margin-bottom: 30px;
+    }
+    .menu_list ul li:first-child{
+        padding-bottom: 11px;
+    }
+
+    .menu_list ul li a{
+        font-size: 16px;
+    }
+    .menu_list ul li{
+        line-height: 35px;
+    }
+
+
+    .image_layer_1{
+        width: 500px;
+        height: 500px;
+    }
+    .image_layer_2{
+        width: 520px;
+        height: 490px;
+    }
+    .image_layer_3{
+        width: 540px;
+        height: 480px;
+    }
+
+    .afterwar_round_image{
+        width: 540px;
+    }
+
+    .right_content{
+        max-width: 300px;
+        right: 3%;
+    }
+
+    .right_content p{
+        font-size: 16px;
+    }
+    .right_content a{
+        margin-top: 30px;
+    }
+
+    .afterwar_banner_image{
+        height: 380px;
+    }
+
+    .left_inner_content{
+        padding-left: 0;
+        padding-bottom: 100px;
+        margin-bottom: 0;
+    }
+
+    .left_inner_content h2{
+        font-size: 34px;
+    }
+
+    .post_content h2{
+        font-size: 24px;
+    }
+
+    .post_content p{
+        font-size: 16px;
+    }
+    .post_content a{
+        font-size: 18px;
+    }
+    .pagination {
+        padding: 47px 0 120px 0;
+    }
+    .detail_banner_text{
+        bottom: 100px;
+    }
+    .detail_page .menu_list {
+        background: rgba(0, 0, 0, 0.753);
+        padding: 20px 50px;
+        top: 63px;
+        z-index: -1;
+    }
+
+    .detail_page .menu_list ul li{
+        line-height: 45px`;
+    }
+
+    .know_main_image{
+        width: 500px;
+        height: 500px;
+    }
+
+    .know_content{
+        width: 400px;
+    }
+
+    .know_content h2{
+        margin-bottom: 45px;
+    }
+    .know_content p{
+        font-size: 18px;
+    }
+    .know_content p{
+        padding-bottom: 30px;
+    }
+
+    .history_main_image{
+        width: 500px;
+        height: 500px;
+    }
+
+    .history_content{
+        width: 400px;
+    }
+    .history_content h2{
+        margin-bottom: 50px;
+    }
+    .history_content p{
+        font-size: 18px;
+        padding-bottom: 30px;
+    }
+  
+    .history_content{
+        position: static;
+        right: 55%;
+        transform: translateY(-10%);
+    }
+    .history_content p{
+        font-size: 16px;
+        padding-left: 60px;
+    }
+    .changeBtn, .changeBtn_one{
+        margin-right: 23%;
+    }
+
+ }
