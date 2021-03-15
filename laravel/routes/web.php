@@ -3,6 +3,7 @@
 // Main site url
 Route::get('/', 'FrontEndController@welcome')->name('welcome');
 
+
 Auth::routes();
 
 // Dashboard home
