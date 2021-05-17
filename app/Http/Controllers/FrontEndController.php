@@ -95,7 +95,13 @@ class FrontEndController extends Controller
     }
 
 
+    public function photo_gallery(){
+        //$allArticle = Article::all();
+        $logo = Logo::where('activation', 1)->first('logo');
+        return view('photo_gallery', compact('logo'));
+    }
 
+     
 
 
 

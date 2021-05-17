@@ -100,12 +100,13 @@ button:focus {
 }
 
 #menu_btn {
-    width: 37px;
-    height: 37px;
+    /*width: 37px;
+    height: 37px;*/
     border: 3px solid #707070;
-    background: #fff;
+    /*background: #fff;*/
     border-radius: 50%;
     z-index: 99;
+    padding: 8px ​11px !important;
 }
 
 .btn-center {
@@ -201,7 +202,7 @@ button:focus {
 
 .banner_main_text {
     position: absolute;
-    bottom: -30px;
+    /*bottom: -30px;*/
     text-align: center;
     opacity: 0;
     z-index: 999;
@@ -894,4 +895,8 @@ button:focus {
 
 .changeBtn {
     transform: rotate(180deg);
+}
+
+.menu_icons{
+    font-size: 32px !important;
 }

@@ -18,34 +18,7 @@
           menu bar start
     ===========================-->
     <nav class="menuBar ">
-        <div class="container">
-           <div class="row justify-content-between">
-               <div class="col-lg-4 col-sm-8 col-md-6 col-9">
-                   <a href="{{url('/')}}" class="logo">
-                       <img src="{{ asset('frontEnd/uploads/logo') }}/{{$logo->logo}}" alt="logo">
-
-                   </a>
-                   <h2 class="logo_title">বঙ্গবন্ধু</h2>
-               </div>
-               <div class="col-lg-2 btn-center col-sm-4 col-md-6 col-3">
-                    <button id="menu_btn"></button>
-               </div>
-           </div>
-           <div class="menu_list">
-               <ul>
-                    	   <li><a href="{{route('readMore')}}">প্রবন্ধ</a></li>
-               	   <li><a href="#">আলোকচিত্র</a></li>
-                   <li><a href="#">চলমান চিত্র</a></li>
-               	   <li><a href="#">বেতার</a></li>
-                   <li><a href="{{route('mujibHistory')}}">ইতিহাসের পাতায়</a></li>
-                   <li><a href="{{route('mujibLife')}}">সচিত্র জীবনী</a></li>
-                   <li><a href="{{route('mujibSpeech')}}">উক্তি</a></li>
-                   <li><a href="{{route('mujibPublication')}}">প্রকাশনা</a></li>
-                   <li><a href="#">আমাদের সম্পর্কে</a></li>
-               </ul>
-
-           </div>
-        </div>
+        @include('layouts.menu')
     </nav>
 
     <!-- =======================

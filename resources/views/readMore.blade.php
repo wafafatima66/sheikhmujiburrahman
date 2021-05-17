@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('frontEnd/css') }}/animate.min.css">
     <link rel="stylesheet" href="{{ asset('frontEnd/css') }}/style.css"/>
     <link rel="stylesheet" href="{{ asset('frontEnd/css') }}/responsive.css">
+     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
   </head>
   <body>
 
@@ -27,15 +28,19 @@
                    <h2 class="logo_title">বঙ্গবন্ধু</h2>
                </div>
                <div class="col-lg-2 col-m-6 col-sm-4 col-3 btn-center">
-                    <button id="menu_btn"></button>
+                      <button id="menu_btn">
+                      <span class="dark-blue-text" style="padding: 10px;">
+                      <i style="color: #FFFFFF;" class="fa fa-bars fa-3x menu_icons"></i>
+                    </span>
+                    </button>
                </div>
            </div>
-           <div class="menu_list">
+            <div class="menu_list">
                <ul>
-                    	   <li><a href="{{route('readMore')}}">প্রবন্ধ</a></li>
-               	   <li><a href="#">আলোকচিত্র</a></li>
+                         <li><a href="{{route('readMore')}}">প্রবন্ধ</a></li>
+                   <li><a href="#">আলোকচিত্র</a></li>
                    <li><a href="#">চলমান চিত্র</a></li>
-               	   <li><a href="#">বেতার</a></li>
+                   <li><a href="#">বেতার</a></li>
                    <li><a href="{{route('mujibHistory')}}">ইতিহাসের পাতায়</a></li>
                    <li><a href="{{route('mujibLife')}}">সচিত্র জীবনী</a></li>
                    <li><a href="{{route('mujibSpeech')}}">উক্তি</a></li>

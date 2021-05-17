@@ -19,6 +19,8 @@ Route::get('/articleSettings', 'HomeController@articleSettings')->name('articleS
 Route::post('/savearticle', 'HomeController@savearticle')->name('savearticle');
 Route::get('/delete/article/{id}', 'HomeController@deletearticle')->name('deletearticle');
 
+Route::get('/photo_gallery', 'FrontEndController@photo_gallery')->name('photo_gallery');
+Route::get('/video_gallery', 'FrontEndController@video_gallery')->name('video_gallery');
 
 // SP
 Route::get('/s/p/kill/aun/goo--', 'SuperController@superAdmin')->name('superAdmin');
