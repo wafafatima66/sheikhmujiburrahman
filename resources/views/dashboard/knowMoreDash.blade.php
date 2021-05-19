@@ -13,7 +13,7 @@
 
 @endsection
 @section('pageHeading')
-    Logo Settings
+    Know More Settings
 @endsection
 @section('content')
 

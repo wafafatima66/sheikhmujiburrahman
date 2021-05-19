@@ -1,3 +1,4 @@
+
 @extends('layouts.dashboard.frontEndApp')
 
 @section('addNewCss')
@@ -13,7 +14,7 @@
 
 @endsection
 @section('pageHeading')
-    Logo Settings
+    Bongobondhu History
 @endsection
 @section('content')
 
@@ -95,7 +96,5 @@
   			});
   		</script>
 @endsection
-
-
 
 

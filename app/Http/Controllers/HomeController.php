@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
+
 use App\Article;
 use App\Banner;
 use App\FirstPage;
+use App\GalleryAlbum;
+use App\GalleryPhoto;
 use App\History;
 use App\KnowMore;
 use App\Logo;
@@ -38,15 +42,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $articleCount = Article::all()->count();
+        $userCount = User::all()->count();
+        return view('home',compact('articleCount'),compact('userCount'));
     }
 
 
-    function articleSettings()
+    function articleList()
     {
         $allArticle = Article::all();
-        return view('dashboard.articleSettings',compact('allArticle'));
+        return view('dashboard.articleList', compact('allArticle'));
     }
+
+    function addArticle()
+    {
+        return view('dashboard.addArticle');
+    }
+
     function savearticle(Request $request)
     {
         $request->validate([
@@ -292,6 +304,12 @@ class HomeController extends Controller
         $mujibLifedash = MujibLife::all();
         return view('dashboard.mujibLifedash', compact('mujibLifedash'));
     }
+
+    function mujibLifedashAdd()
+    {
+        return view('dashboard.mujibLifedashAdd');
+    }
+
     function savemujib_Life(Request $request)
     {
         $request->validate([
@@ -323,6 +341,12 @@ class HomeController extends Controller
         $mujibSpeechdash = MujibSpeech::all();
         return view('dashboard.mujibSpeechdash', compact('mujibSpeechdash'));
     }
+
+    function mujibSpeechdashAdd()
+    {
+        return view('dashboard.mujibSpeechdashAdd');
+    }
+
     function savemujib_Speech(Request $request)
     {
         $request->validate([
@@ -482,8 +506,8 @@ class HomeController extends Controller
 
     function editarticle($id)
     {
-        $allProducts=Article::findOrFail($id);
-        return view('dashboard/editor/article',compact('allProducts'));
+        $allProducts = Article::findOrFail($id);
+        return view('dashboard/editor/article', compact('allProducts'));
     }
     function savearticleEdit(Request $request)
     {
@@ -501,9 +525,9 @@ class HomeController extends Controller
             'writer' => $request->writer
         ]);
         if ($request->hasFile('photo')) {
-            $image_name = Article::findOrFail( $request->id)->photo;
-            $update_image=$request->id.'.'.$request->photo->getClientOriginalExtension();
-            unlink(base_path("public/frontEnd/uploads/article/".$image_name));
+            $image_name = Article::findOrFail($request->id)->photo;
+            $update_image = $request->id . '.' . $request->photo->getClientOriginalExtension();
+            unlink(base_path("public/frontEnd/uploads/article/" . $image_name));
             Article::findOrFail($request->id)->update([
                 'photo' => $update_image,
             ]);
@@ -512,11 +536,11 @@ class HomeController extends Controller
 
         return back()->with('greenStatus', 'Saved👍');
     }
-    
+
     function edit_savemujib_Life($id)
     {
-        $allProducts=MujibLife::findOrFail($id);
-        return view('dashboard/editor/mujibLifedash',compact('allProducts'));
+        $allProducts = MujibLife::findOrFail($id);
+        return view('dashboard/editor/mujibLifedash', compact('allProducts'));
     }
     function saveEditmujib_Life(Request $request)
     {
@@ -530,8 +554,8 @@ class HomeController extends Controller
             'dis' => $request->dis,
         ]);
         if ($request->hasFile('photo')) {
-            $image_name = MujibLife::findOrFail( $request->id)->photo;
-            $update_image=$request->id.'.'.$request->photo->getClientOriginalExtension();
+            $image_name = MujibLife::findOrFail($request->id)->photo;
+            $update_image = $request->id . '.' . $request->photo->getClientOriginalExtension();
             unlink(base_path("public/frontEnd/uploads/mujib_Life/" . $image_name));
             MujibLife::findOrFail($request->id)->update([
                 'photo' => $update_image,
@@ -545,8 +569,8 @@ class HomeController extends Controller
 
     function edit_mujibHistorydash($id)
     {
-        $allProducts=MujibHistory::findOrFail($id);
-        return view('dashboard/editor/mujibHistorydash',compact('allProducts'));
+        $allProducts = MujibHistory::findOrFail($id);
+        return view('dashboard/editor/mujibHistorydash', compact('allProducts'));
     }
     function saveedit_mujibHistorydash(Request $request)
     {
@@ -560,8 +584,8 @@ class HomeController extends Controller
             'dis' => $request->dis,
         ]);
         if ($request->hasFile('photo')) {
-            $image_name = MujibHistory::findOrFail( $request->id)->photo;
-            $update_image=$request->id.'.'.$request->photo->getClientOriginalExtension();
+            $image_name = MujibHistory::findOrFail($request->id)->photo;
+            $update_image = $request->id . '.' . $request->photo->getClientOriginalExtension();
             unlink(base_path("public/frontEnd/uploads/mijib_history/" . $image_name));
             MujibHistory::findOrFail($request->id)->update([
                 'photo' => $update_image,
@@ -575,8 +599,8 @@ class HomeController extends Controller
 
     function edit_mujibSpeechdash($id)
     {
-        $allProducts=MujibSpeech::findOrFail($id);
-        return view('dashboard/editor/mujibSpeechdash',compact('allProducts'));
+        $allProducts = MujibSpeech::findOrFail($id);
+        return view('dashboard/editor/mujibSpeechdash', compact('allProducts'));
     }
     function saveEditsavemujib_Speech(Request $request)
     {
@@ -590,8 +614,8 @@ class HomeController extends Controller
             'dis' => $request->dis,
         ]);
         if ($request->hasFile('photo')) {
-            $image_name = MujibSpeech::findOrFail( $request->id)->photo;
-            $update_image=$request->id.'.'.$request->photo->getClientOriginalExtension();
+            $image_name = MujibSpeech::findOrFail($request->id)->photo;
+            $update_image = $request->id . '.' . $request->photo->getClientOriginalExtension();
             unlink(base_path("public/frontEnd/uploads/mujib_Speech/" . $image_name));
             MujibSpeech::findOrFail($request->id)->update([
                 'photo' => $update_image,
@@ -605,8 +629,8 @@ class HomeController extends Controller
 
     function edit_mujibPublicationdash($id)
     {
-        $allProducts=MujibPublication::findOrFail($id);
-        return view('dashboard/editor/mujibPublicationdash',compact('allProducts'));
+        $allProducts = MujibPublication::findOrFail($id);
+        return view('dashboard/editor/mujibPublicationdash', compact('allProducts'));
     }
     function savemujib_Publication_edit(Request $request)
     {
@@ -620,8 +644,8 @@ class HomeController extends Controller
             'dis' => $request->dis,
         ]);
         if ($request->hasFile('photo')) {
-            $image_name = MujibPublication::findOrFail( $request->id)->photo;
-            $update_image=$request->id.'.'.$request->photo->getClientOriginalExtension();
+            $image_name = MujibPublication::findOrFail($request->id)->photo;
+            $update_image = $request->id . '.' . $request->photo->getClientOriginalExtension();
             unlink(base_path("public/frontEnd/uploads/mujib_Publication/" . $image_name));
             MujibPublication::findOrFail($request->id)->update([
                 'photo' => $update_image,
@@ -635,8 +659,8 @@ class HomeController extends Controller
 
     function knowEdit($id)
     {
-        $allProducts=KnowMore::findOrFail($id);
-        return view('dashboard/editor/KnowMoreDash',compact('allProducts'));
+        $allProducts = KnowMore::findOrFail($id);
+        return view('dashboard/editor/KnowMoreDash', compact('allProducts'));
     }
     function knowEditSave(Request $request)
     {
@@ -650,25 +674,134 @@ class HomeController extends Controller
             'dis' => $request->dis,
         ]);
         if ($request->hasFile('photo')) {
-            $image_name = KnowMore::findOrFail( $request->id)->photo;
-            $update_image=$request->id.'.'.$request->photo->getClientOriginalExtension();
+            $image_name = KnowMore::findOrFail($request->id)->photo;
+            $update_image = $request->id . '.' . $request->photo->getClientOriginalExtension();
             unlink(base_path("public/frontEnd/uploads/knowMore/" . $image_name));
             KnowMore::findOrFail($request->id)->update([
                 'photo' => $update_image,
             ]);
             Image::make($request->photo)->resize(945, 945)->save(base_path("public/frontEnd/uploads/knowMore/" . $update_image), 100);
-            
         }
 
         return back()->with('greenStatus', 'Saved👍');
     }
 
+    // Add users 
+
+    function addUser()
+    {
+        return view('dashboard/addUser');
+    }
+
+    function storeUser(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required|confirmed',
+            'phone' => 'required',
+            'photo' => 'required'
+        ]);
+
+        $lastId = User::insertGetId([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'phone' => $request->phone,
+            'photo' => $request->photo
+
+        ]);
+
+        if ($request->hasFile('photo')) {
+            $photo = $request->photo;
+            $photoName = $lastId . '.' . $photo->getClientOriginalExtension();
+            Image::make($photo)->resize(2092, 1113)->save(base_path("public/assets/images/users/" . $photoName), 100);
+            // Image::make($photo)->resize(20, 20)->save(base_path("public/frontEnd/img/" . $photoName), 100);
+            User::findOrFail($lastId)->update([
+                'photo' => $photoName,
+            ]);
+        }
 
 
+        return back()->with('greenStatus', 'Saved👍');
+    }
+
+    //Edit User 
 
 
+    function editUser($id)
+    {
+        $user = User::findOrFail($id);
+        return view('dashboard/editUser', compact('user'));
+    }
 
+    function updateUser(Request $request)
+    {
+        $lastId = User::find($request->id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'photo' => $request->photo
+        ]);
+        if ($request->hasFile('photo')) {
+            $image_name = User::findOrFail($request->id)->photo;
+            $update_image = $request->id . '.' . $request->photo->getClientOriginalExtension();
+            unlink(base_path("public/assets/images/users/" . $image_name));
+            User::findOrFail($request->id)->update([
+                'photo' => $update_image,
+            ]);
+            Image::make($request->photo)->resize(945, 945)->save(base_path("public/assets/images/users/" . $update_image), 100);
+        }
 
+        return back()->with('greenStatus', 'Updated👍');
+    }
 
+    //PHOTO GALLERY 
+
+    function addPhoto()
+    {
+        $albumList = GalleryAlbum::all();
+        return view('dashboard/addPhoto',compact('albumList'));
+    }
+
+    function storePhoto(Request $request)
+    {
+        $request->validate([
+            'photo_name' => 'required',
+            'photo_link' => 'required',
+            'album_id' => 'required'
+        ]);
+
+        $lastId = GalleryPhoto::insertGetId([
+            'photo_name' => $request->photo_name,
+            'photo_link' => $request->photo_link,
+            'album_id' => $request->album_id
+        ]);
+
+        if ($request->hasFile('photo_link')) {
+            $photo = $request->photo_link;
+            $photoName = $lastId . '.' . $photo->getClientOriginalExtension();
+            Image::make($photo)->resize(2092, 1113)->save(base_path("public/assets/images/photoGallery/" . $photoName), 100);
+            // Image::make($photo)->resize(20, 20)->save(base_path("public/frontEnd/img/" . $photoName), 100);
+            GalleryPhoto::findOrFail($lastId)->update([
+                'photo_link' => $photoName,
+            ]);
+        }
+
+        return back()->with('greenStatus', 'Saved👍');
+    }
+
+    function storeAlbum(Request $request)
+    {
+        $request->validate([
+            'album_name' => 'required'
+        ]);
+
+        $lastId = GalleryAlbum::insertGetId([
+            'album_name' => $request->album_name
+        ]);
+
+        return back()->with('greenStatus', 'Saved👍');
+    }
     // Class Ends Here
 }

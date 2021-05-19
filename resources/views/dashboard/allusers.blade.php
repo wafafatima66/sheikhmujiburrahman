@@ -13,41 +13,41 @@
 
 @endsection
 @section('pageHeading')
-    Logo Settings
+    Users Setting 
 @endsection
 @section('content')
 
-<div class="container">
+<div class="container " style="width: 90%">
 
-<table class="table table-info">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Action</th>
-      {{-- <th scope="col">Remove</th> --}}
-    </tr>
-  </thead>
-  <tbody>
-        @foreach ($allusers as $item)
-            @if ($item->userType == 1 )
-            <tr>
-                <td>{{$item->name}}</td>
-                <td>{{$item->email}}</td>
-                @if ($item->userActivation == 1)
-                <td><a href="{{url("deactive/user")}}/{{$item->id}}" class="btn btn-success">Activated</a></td>
-                @else
-                <td><a href="{{url("active/user")}}/{{$item->id}}" class="btn btn-danger">Deactivated</a></td>
-                @endif
-                {{-- <td><a href="{{url("remove/user")}}/{{$item->id}}" class="btn btn-danger">Remove</a></td> --}}
-            </tr>
-            @endif
-        @endforeach
-  </tbody>
-</table>
-<br><br>
-</div>
-
+      <table class="table table-info">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+            {{-- <th scope="col">Remove</th> --}}
+          </tr>
+        </thead>
+        <tbody>
+              @foreach ($allusers as $item)
+                  @if ($item->userType == 1 )
+                  <tr>
+                      <td>{{$item->name}}</td>
+                      <td>{{$item->email}}</td>
+                      <td>
+                        @if ($item->userActivation == 1)
+                          <a href="{{url("deactive/user")}}/{{$item->id}}" class="btn btn-success" style="width:105px;">Activated</a>
+                        @else
+                          <a href="{{url("active/user")}}/{{$item->id}}" class="btn btn-danger" style="width:105px;">Deactivated</a>
+                        @endif
+                        <a href="{{url("editUser")}}/{{$item->id}}" class="btn btn-danger">Edit</a>
+                    </td>
+                  </tr>
+                  @endif
+              @endforeach
+        </tbody>
+      </table>
+    </div>
 
 @endsection
 @section('addNewScript')

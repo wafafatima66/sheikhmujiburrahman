@@ -13,7 +13,7 @@
 
 @endsection
 @section('pageHeading')
-    Logo Settings
+    Bongobondhu Speech List
 @endsection
 @section('content')
 
@@ -46,6 +46,7 @@
 </table>
 <br><br>
 </div>
+{{-- 
 <div class="container">
 
 
@@ -68,7 +69,7 @@
   <button type="submit" class="btn btn-primary">Save</button>
 </form>
 
-</div>
+</div> --}}
 </div>
 
 

@@ -1,5 +1,7 @@
 <?php
 
+
+
 // Main site url
 Route::get('/', 'FrontEndController@welcome')->name('welcome');
 
@@ -15,7 +17,8 @@ Route::get('/article/details/{id}', 'FrontEndController@articledetails')->name('
 
 
 // Aticle Dashboard
-Route::get('/articleSettings', 'HomeController@articleSettings')->name('articleSettings');
+Route::get('/articleList', 'HomeController@articleList')->name('articleList');
+Route::get('/addArticle', 'HomeController@addArticle')->name('addArticle');
 Route::post('/savearticle', 'HomeController@savearticle')->name('savearticle');
 Route::get('/delete/article/{id}', 'HomeController@deletearticle')->name('deletearticle');
 
@@ -64,6 +67,7 @@ Route::get('/bongobondhu/know/more', 'FrontEndController@knowmore')->name('knowm
 Route::get('/bongobondhu/sochitro/jiboni', 'FrontEndController@jiboniFrontEnd')->name('mujibLife');
 // Mujib sochitro jiboni (dashboard)
 Route::get('/dashboard/bongobondhu/Life', 'HomeController@mujibLifedash')->name('mujibLifedash');
+Route::get('/dashboard/bongobondhu/Life/Add', 'HomeController@mujibLifedashAdd')->name('mujibLifedashAdd');
 Route::post('/savemujib_Life', 'HomeController@savemujib_Life')->name('savemujib_Life');
 Route::get('/delete_mujibLifedash/delete/{id}', 'HomeController@delete_mujibLifedash');
 
@@ -84,6 +88,8 @@ Route::get('/delete_mujibHistorydash/delete/{id}', 'HomeController@delete_mujibH
 // Route::get('/delete_mujibLifedash/delete/{id}', 'HomeController@delete_mujibLifedash');
 
 Route::get('/dashboard/bongobondhu/Speech', 'HomeController@mujibSpeechdash')->name('mujibSpeechdash');
+Route::get('/dashboard/bongobondhu/Speech/Add', 'HomeController@mujibSpeechdashAdd')->name('mujibSpeechdashAdd');
+
 Route::post('/savemujib_Speech', 'HomeController@savemujib_Speech')->name('savemujib_Speech');
 Route::get('/delete_mujibSpeechdash/delete/{id}', 'HomeController@delete_mujibSpeechdash');
 
@@ -131,3 +137,14 @@ Route::post('/saveedit_mujibHistorydash', 'HomeController@saveedit_mujibHistoryd
 
 Route::get('/delete_mujibSpeechdash/edit/{id}', 'HomeController@edit_mujibSpeechdash');
 Route::post('/saveEditsavemujib_Speech', 'HomeController@saveEditsavemujib_Speech')->name('saveEditsavemujib_Speech');
+
+// USERS
+Route::post('/storeUser', 'HomeController@storeUser')->name('storeUser');
+Route::get('/addUser', 'HomeController@addUser')->name('addUser');
+Route::get('/editUser/{id}', 'HomeController@editUser');
+Route::post('/updateUser', 'HomeController@updateUser')->name('updateUser');
+
+// PHOTO GALLERY 
+Route::get('/addPhoto', 'HomeController@addPhoto')->name('addPhoto');
+Route::post('/storePhoto', 'HomeController@storePhoto')->name('storePhoto');
+Route::post('/storeAlbum', 'HomeController@storeAlbum')->name('storeAlbum');

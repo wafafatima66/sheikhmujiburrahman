@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Article;
 use App\Banner;
 use App\FirstPage;
+use App\GalleryAlbum;
+use App\GalleryPhoto;
 use App\History;
 use App\KnowMore;
 use App\Logo;
@@ -98,14 +100,17 @@ class FrontEndController extends Controller
     public function photo_gallery(){
         //$allArticle = Article::all();
         $logo = Logo::where('activation', 1)->first('logo');
-        return view('photo_gallery', compact('logo'));
+        $allPhotos = GalleryPhoto::all();
+        $allAlbums = GalleryAlbum::all();
+        $data = array(
+            'allPhotos' => $allPhotos,
+            'logo'=> $logo,
+            'allAlbums'=> $allAlbums
+        );
+        return view('photo_gallery')->with($data);
+
     }
 
      
-
-
-
-
-
     // Class Ends Here
 }

@@ -13,7 +13,7 @@
 
 @endsection
 @section('pageHeading')
-    Logo Settings
+    Publications
 @endsection
 @section('content')
 
