@@ -136,7 +136,13 @@
                             </li>
 
                             <li>
-                                <a><i class="fi-help"></i><span>Articles</span><span class="menu-arrow"></span></a>
+                                <a href="{{__('/home')}}">
+                                    <i class="fas fa-tachometer-alt"></i><span> Dashboard </span>
+                                    </a>
+                                </li>
+
+                            <li>
+                                <a><i class="fas fa-newspaper "></i><span>Articles</span><span class="menu-arrow"></span></a>
 
                                 <ul class="nav-second-level" aria-expanded=false>
                                     <li><a href="{{route('articleList')}}">Article List</a></li>

@@ -17,10 +17,11 @@ History Settings
 @endsection
 @section('content')
 
-<div class="container">
+<div class="container" style="width:100%">
 
     <div class="row">
-        <div class="col-lg-8 mt-5">
+        <div class="col-lg-6">
+            
             <table class="table table-info">
                 <thead class="thead-dark">
                     <tr>
@@ -40,10 +41,10 @@ History Settings
                     @endforeach
                 </tbody>
             </table>
-
+        
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-6">
             <form enctype="multipart/form-data" action="{{route('saveHistory')}}" method="POST">
                 @csrf
                 <div class="form-group">
@@ -67,11 +68,8 @@ History Settings
     </div>
 
 
-
-
-
-
 </div>
+
 
 
 @endsection

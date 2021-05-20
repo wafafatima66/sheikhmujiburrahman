@@ -30,38 +30,36 @@
 
 
 <style>
-    .report-col{
-        border: 1px #888 solid ;
-        box-shadow: 0 12px 10px -10px rgba(0, 0, 0, 0.4);
-        margin: 20px;
-    }
-
-
-
-
-    .report-col i {
-	color: lightskyblue;
-	margin-bottom: 5px;
+.report-col{
+    box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+          0 2px 2px rgba(0,0,0,0.11), 
+          0 4px 4px rgba(0,0,0,0.11), 
+          0 6px 6px rgba(0,0,0,0.11);
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 10px;
 }
-
+.report-col i {
+    color: lightskyblue;
+    margin-bottom: 5px;
+}
 .report-col  .counter {
 	font-size: 45px;
 	margin: 10px 0;
 }
 
-
-
 </style>
 
-{{-- @section('pageHeading')
+@section('pageHeading')
 DashBoard
-@endsection --}}
+@endsection
+
 @section('content')
 
-<div class="container" style="width: 100%">
+<div class="container" style="width: 60%">
 
     <div class="row">
-        <div class="col-lg-5 report-col">
+        <div class="col-lg-4 report-col">
 
                     <div class="text-center">
                         <i class="fas fa-newspaper fa-4x mt-3"></i>
@@ -71,7 +69,7 @@ DashBoard
                 
         </div>
 
-         <div class="col-lg-5 report-col">
+         <div class="col-lg-4 report-col">
             <div class="text-center">
                 <i class="fas fa-users fa-4x mt-3"></i>
                 <div class="counter" data-target="{{ $userCount }}">0</div>
@@ -85,7 +83,7 @@ DashBoard
 
 <script>
  const counters = document.querySelectorAll('.counter');
-const speed = 20; // The lower the slower
+const speed = 5; // The lower the slower
 
 counters.forEach(counter => {
 	const updateCount = () => {

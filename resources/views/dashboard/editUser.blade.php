@@ -17,13 +17,14 @@
 @endsection
 @section('content')
 
-<div class="container " style="width: 90%">
+<div class="container " style="width: 50%">
 
  
       <form enctype="multipart/form-data" action="{{route('updateUser') }}" method="POST" >
         @csrf
 
         <input value="{{$user->id}}" name="id" type="hidden">
+        
         <div class="form-group">
             <label for="exampleInputEmail1">Name</label>
             <input name="name" type="text" class="form-control" value="{{$user->name}}">
@@ -53,11 +54,10 @@
         <div class="form-group">
             <label for="exampleInputEmail1">Photo</label>
 
-            <div class="d-flex flex-row">
-              <input name="photo" type="file" class="form-control" required>
-
-              <img src="{{asset('assets/images/users/'.$user->photo)}}" alt="user" style="width:50px; height:50px" class=" m-1">
-            </div>
+              <input name="photo" type="file" class="form-control" onchange="previewFile(this);" required>
+             
+              <img class="mt-2" id="previewImg" src="{{asset('assets/images/users/'.$user->photo)}}" alt="Placeholder" style="height:100px">
+           
       </div>
         <button type="submit" class="btn btn-primary">Save</button>
       </form>
@@ -93,6 +93,23 @@
   			  })
   			});
   		</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    function previewFile(input){
+        var file = $("input[type=file]").get(0).files[0];
+ 
+        if(file){
+            var reader = new FileReader();
+ 
+            reader.onload = function(){
+                $("#previewImg").attr("src", reader.result);
+            }
+ 
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
 @endsection
 
 

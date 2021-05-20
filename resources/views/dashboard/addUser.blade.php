@@ -17,7 +17,7 @@
 @endsection
 @section('content')
 
-<div class="container " style="width: 90%">
+<div class="container " style="width: 50%">
 
 
       <form enctype="multipart/form-data" action="{{route('storeUser') }}" method="POST" >

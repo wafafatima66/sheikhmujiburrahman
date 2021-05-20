@@ -21,7 +21,7 @@ Photo Gallery Setting
     <div class="row">
 
 
-        <div class="col-lg-2">
+       {{--  <div class="col-lg-2">
 
             <table class="table table-info">
                 <thead class="thead-dark">
@@ -39,7 +39,7 @@ Photo Gallery Setting
                 </tbody>
             </table>
         </div>
-
+ --}}
 
 
         <div class="col-lg-5 ">

@@ -19,7 +19,7 @@ First Page Text
 
 <div class="container" style="width: 90%">
     <div class="row">
-        <div class="col-lg-6 mt-5">
+        <div class="col-lg-6 ">
 
             <table class="table table-info">
                 <thead class="thead-dark">

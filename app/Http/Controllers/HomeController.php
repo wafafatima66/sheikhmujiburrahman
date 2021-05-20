@@ -716,7 +716,6 @@ class HomeController extends Controller
             $photo = $request->photo;
             $photoName = $lastId . '.' . $photo->getClientOriginalExtension();
             Image::make($photo)->resize(2092, 1113)->save(base_path("public/assets/images/users/" . $photoName), 100);
-            // Image::make($photo)->resize(20, 20)->save(base_path("public/frontEnd/img/" . $photoName), 100);
             User::findOrFail($lastId)->update([
                 'photo' => $photoName,
             ]);
@@ -737,19 +736,22 @@ class HomeController extends Controller
 
     function updateUser(Request $request)
     {
-        $lastId = User::find($request->id)->update([
+        User::find($request->id)->update([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'photo' => $request->photo
         ]);
         if ($request->hasFile('photo')) {
-            $image_name = User::findOrFail($request->id)->photo;
-            $update_image = $request->id . '.' . $request->photo->getClientOriginalExtension();
+            $image_name = User::find($request->id)->photo;
+            $photo = $request->photo ; 
+            $update_image = $request->id . '.' . $photo->getClientOriginalExtension();
             unlink(base_path("public/assets/images/users/" . $image_name));
-            User::findOrFail($request->id)->update([
-                'photo' => $update_image,
+          
+            User::find($request->id)->update([
+                'photo' => $update_image
             ]);
+        
             Image::make($request->photo)->resize(945, 945)->save(base_path("public/assets/images/users/" . $update_image), 100);
         }
 
