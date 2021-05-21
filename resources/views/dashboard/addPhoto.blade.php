@@ -21,26 +21,7 @@ Photo Gallery Setting
     <div class="row">
 
 
-       {{--  <div class="col-lg-2">
-
-            <table class="table table-info">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Album Name</th>
-                        {{-- <th scope="col">Remove</th> --}}
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($albumList as $album)
-                    <tr>
-                        <td>{{$album->album_name}}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
- --}}
-
+    
 
         <div class="col-lg-5 ">
 

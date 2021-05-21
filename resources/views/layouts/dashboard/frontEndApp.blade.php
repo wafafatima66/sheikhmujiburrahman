@@ -35,7 +35,43 @@
         <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
 
     </head>
+   
+    <style>
+       
+        .button-menu-mobile, .topbar .topbar-left , .navbar-custom{
+            background-color: #448AFF;
+        }
+        .side-menu{
+            background-color: #fff;
+        }
+        #sidebar-menu > ul > li > a  {
+            color: #222;
+        }
 
+        #sidebar-menu > ul > li > a.active,#sidebar-menu > ul > li > a:hover, #sidebar-menu > ul > li > a:focus, #sidebar-menu > ul > li > a:active{
+            color: #fff;
+            background-color:  #448AFF;
+        }
+    
+        .nav-second-level li a{
+            color: #222;
+        }
+        .nav-second-level > li > .nav-second-level-list{
+            color: #222;
+        }
+       
+        .nav-second-level li.active > a , .nav-second-level > li > a:hover, .nav-second-level > li > a:active, .nav-second-level > li > a:focus, .nav-second-level > li > a:active{
+            background-color:  #448AFF;
+        }
+     
+        .nav-second-level > li > .nav-second-level-list:hover, .nav-second-level > li > .nav-second-level-list:active, .nav-second-level > li > .nav-second-level-list:focus, .nav-second-level > li > .nav-second-level-list:active{
+            background-color:  #448AFF;
+            color: #fff ;
+        }
+        /* .page-title-box{
+            background-color:  #6B8EC9;
+        } */
+    </style>
 
     <body>
 
@@ -49,7 +85,7 @@
                 <div class="topbar-left">
                     <a href="index.html" class="logo">
                                 <span>
-                                    <img src="{{ asset('assets/images/logo.png') }}" alt="" height="25">
+                                    <img src="{{ asset('assets/images/logo.png') }}" alt="" height="25" >
                                 </span>
                         <i>
                             <img src="{{ asset('assets/images/logo_sm.png') }}" alt="" height="28">
@@ -127,7 +163,7 @@
 
                             <li>
                             <a href="{{__('/')}}">
-                                    <i class="fi-air-play"></i><span> Main Site </span>
+                                    <i class="fi-air-play "></i>Main Site
                                 </a>
                                 {{-- <ul class="nav-second-level" aria-expanded=false>
                                     <li><a href="index.html">Dashboard 1</a></li>
@@ -136,13 +172,13 @@
                             </li>
 
                             <li>
-                                <a href="{{__('/home')}}">
-                                    <i class="fas fa-tachometer-alt"></i><span> Dashboard </span>
+                                <a href="{{route('home')}}">
+                                    <i class="fas fa-tachometer-alt "></i>Dashboard
                                     </a>
                                 </li>
 
                             <li>
-                                <a><i class="fas fa-newspaper "></i><span>Articles</span><span class="menu-arrow"></span></a>
+                                <a><i class="fas fa-newspaper  "></i>Articles<span class="menu-arrow"></span></a>
 
                                 <ul class="nav-second-level" aria-expanded=false>
                                     <li><a href="{{route('articleList')}}">Article List</a></li>
@@ -155,7 +191,7 @@
 
                             <li>
                                 <a>
-                                    <i class="fi-help"></i><span> Theme Settings </span> <span class="menu-arrow"></span>
+                                    <i class="fi-help "></i>Theme Settings <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li><a href="{{route('logosettings')}}">Logo</a></li>
@@ -167,7 +203,7 @@
                                     <li><a href=" {{route('mujibHistorydash')}} ">Bongobondhu History</a></li>
 
                                     <li>
-                                        <a><span>Bongobondhu Jiboni</span><i class=" fas fa-caret-down"></i></a>
+                                        <a class="nav-second-level-list">Bongobondhu Jiboni<i class=" fas fa-caret-down  " style="margin: 0 ;"></i></a>
                                        
                                         <ul class="nav-second-level" aria-expanded="false">
                                             <li><a href="{{route('mujibLifedash')}}">List</a></li>
@@ -177,7 +213,7 @@
                                     </li>
 
                                     <li>
-                                        <a><span>Bongobondhu Speech</span><i class="fas fa-caret-down" style="margin: 0 ;"></i></a>
+                                        <a class="nav-second-level-list" >Bongobondhu Speech<i class="fas fa-caret-down " style="margin: 0 ;"></i></a>
                                         
                                         <ul class="nav-second-level" aria-expanded="false">
                                             <li><a href="{{route('mujibSpeechdash')}} ">List</a></li>
@@ -193,7 +229,7 @@
                                     @if (Auth::user()->userType != 1)
 
                                         <li>
-                                            <a href=" {{route('allusers')}} "><span>All Users</span><i class=" fas fa-caret-down"></i></a>
+                                            <a href=" {{route('allusers')}} ">All Users<i class=" fas fa-caret-down "></i></a>
 
                                             <ul class="nav-second-level" aria-expanded="false">
                                                 <li><a href="{{route('allusers')}}">List</a></li>

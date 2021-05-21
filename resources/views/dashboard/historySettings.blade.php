@@ -21,30 +21,7 @@ History Settings
 
     <div class="row">
         <div class="col-lg-6">
-            
-            <table class="table table-info">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Photo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($allhistory as $item)
-                    <tr>
-                        <td>{{$item->title}}</td>
-                        <td><textarea cols="30" rows="10" readonly>{{$item->dis}}</textarea></td>
-                        <td style="width: 50%;"><img width="200" src="{{asset('frontEnd/uploads/history')}}/{{$item->photo}}" alt="No Photo" srcset=""></td> 
-                        {{-- <td>{!! html_entity_decode(Str::limit($item->article,20)) !!}</td> --}}
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        
-        </div>
 
-        <div class="col-lg-6">
             <form enctype="multipart/form-data" action="{{route('saveHistory')}}" method="POST">
                 @csrf
                 <div class="form-group">
@@ -63,6 +40,34 @@ History Settings
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>
+
+
+        </div>
+
+
+        <div class="col-lg-6" style="margin-top: 30px">
+
+            <table class="table table-info">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Photo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($allhistory as $item)
+                    <tr>
+                        <td>{{$item->title}}</td>
+                        <td><textarea cols="30" rows="10" readonly>{{$item->dis}}</textarea></td>
+                        <td style="width: 50%;"><img width="200"
+                                src="{{asset('frontEnd/uploads/history')}}/{{$item->photo}}" alt="No Photo" srcset="">
+                        </td>
+                        {{-- <td>{!! html_entity_decode(Str::limit($item->article,20)) !!}</td> --}}
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
 
         </div>
     </div>

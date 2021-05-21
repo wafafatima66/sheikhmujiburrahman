@@ -21,6 +21,24 @@ First Page Text
     <div class="row">
         <div class="col-lg-6 ">
 
+            <form enctype="multipart/form-data" action="{{route('updateFirstPage')}}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Title</label>
+                    <input name="title" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Description</label>
+                    <textarea name="dis" cols="30" rows="10" class="form-control" placeholder="Write Here"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+
+        <div class="col-lg-6 " style="margin-top: 30px">
+
+            
             <table class="table table-info">
                 <thead class="thead-dark">
                     <tr>
@@ -38,22 +56,7 @@ First Page Text
                     @endforeach
                 </tbody>
             </table>
-        </div>
-
-        <div class="col-lg-6">
-            <form enctype="multipart/form-data" action="{{route('updateFirstPage')}}" method="POST">
-                @csrf
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Title</label>
-                    <input name="title" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Description</label>
-                    <textarea name="dis" cols="30" rows="10" class="form-control" placeholder="Write Here"></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Update</button>
-            </form>
+            
 
         </div>
     </div>

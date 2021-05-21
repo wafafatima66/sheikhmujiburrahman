@@ -56,10 +56,10 @@ DashBoard
 
 @section('content')
 
-<div class="container" style="width: 60%">
+<div class="container" style="width: 100%">
 
     <div class="row">
-        <div class="col-lg-4 report-col">
+        <div class="col-lg-3 report-col">
 
                     <div class="text-center">
                         <i class="fas fa-newspaper fa-4x mt-3"></i>
@@ -69,13 +69,15 @@ DashBoard
                 
         </div>
 
-         <div class="col-lg-4 report-col">
+         <div class="col-lg-3 report-col">
             <div class="text-center">
                 <i class="fas fa-users fa-4x mt-3"></i>
                 <div class="counter" data-target="{{ $userCount }}">0</div>
                 <h3 class="mb-3">Total User</h3>
             </div>
         </div>
+
+        
     </div>
 </div>
 

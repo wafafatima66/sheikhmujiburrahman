@@ -24,8 +24,31 @@ Bongobondhu History
 
         <div class="col-lg-6">
 
+            <form enctype="multipart/form-data" action="{{route('savemijibhistory')}}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Title</label>
+                    <input name="title" type="text" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Description</label>
+                    <textarea name="dis" cols="15" rows="10" class="form-control" placeholder="Write Here"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Photo</label>
+                    <input name="photo" type="file" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
           
 
+            
+        </div>
+
+        <div class="col-lg-6" style="margin-top: 30px">
+           
             <table class="table table-info">
                 <thead class="thead-dark">
                     <tr>
@@ -52,28 +75,6 @@ Bongobondhu History
                     @endforeach
                 </tbody>
             </table>
-        </div>
-
-        <div class="col-lg-6">
-            <form enctype="multipart/form-data" action="{{route('savemijibhistory')}}" method="POST">
-                @csrf
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Title</label>
-                    <input name="title" type="text" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Description</label>
-                    <textarea name="dis" cols="15" rows="10" class="form-control" placeholder="Write Here"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Photo</label>
-                    <input name="photo" type="file" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </form>
-
         </div>
     </div>
 </div>
