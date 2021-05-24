@@ -13,7 +13,7 @@
 
 @endsection
 @section('pageHeading')
-    Users Setting 
+    Users list
 @endsection
 @section('content')
 
@@ -40,8 +40,10 @@
                         @else
                           <a href="{{url("active/user")}}/{{$item->id}}" class="btn btn-danger" style="width:105px;">Deactivated</a>
                         @endif
-                        <a href="{{url("editUser")}}/{{$item->id}}" class="btn btn-danger">Edit</a>
+                        <a href="{{url("editUser")}}/{{$item->id}}" class="btn btn-info">Edit</a>
+                        <a href="{{url("userRole")}}/{{$item->id}}" class="btn btn-primary">Assign Permission</a>
                     </td>
+                    
                   </tr>
                   @endif
               @endforeach

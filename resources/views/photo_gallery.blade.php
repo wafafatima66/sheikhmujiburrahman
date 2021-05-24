@@ -15,6 +15,79 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 </head>
 
+
+<style type="text/css">
+    .btn:focus,
+    .btn:active,
+    button:focus,
+    button:active {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    #image-gallery .modal-footer {
+        display: block;
+    }
+
+    .thumb {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+
+    /* ALBUM TAB STYLING */
+
+
+
+   
+    
+    .photo-gallery-section {
+        margin-top: 100px;
+    }
+    .title {
+        font-weight: 500;
+        line-height: 1.2;
+        font-size: 2.5rem ; 
+    }
+    .image-wrap{
+        height: 300px;
+        width: 100%;
+        filter: grayscale(80%);
+    }
+    .image-wrap:hover{
+        filter: grayscale(0);
+    }
+    .image-wrap .image-info {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+    }
+    .image-wrap .image-info h2{
+        color: #fff ; 
+        text-transform: capitalize ; 
+    }
+    .btn-outline-white{
+        border-color: #fff;
+        color: #fff;
+        border-width: 2px;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: .1em;
+    }
+    .btn-outline-white:hover{
+        color: #fff;
+        font-weight: bold;
+    }
+    .img-fluid {
+        max-width: 100%;
+        height: 100% ; 
+    }
+
+</style>
+
 <body>
 
     <!-- =======================
@@ -59,295 +132,59 @@
           menu bar end
           ===========================-->
 
-    <style type="text/css">
-        .btn:focus,
-        .btn:active,
-        button:focus,
-        button:active {
-            outline: none !important;
-            box-shadow: none !important;
-        }
 
-        #image-gallery .modal-footer {
-            display: block;
-        }
-
-        .thumb {
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-
-
-        /* ALBUM TAB STYLING */
-
-
-
-        /* Style the tab */
-        .tab {
-            overflow: hidden;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
-        }
-
-        /* Style the buttons inside the tab */
-        .tab button {
-            background-color: inherit;
-            float: left;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 14px 16px;
-            transition: 0.3s;
-            font-size: 17px;
-            text-transform: capitalize;
-        }
-
-        /* Change background color of buttons on hover */
-        .tab button:hover {
-            background-color: #ddd;
-        }
-
-        /* Create an active/current tablink class */
-        .tab button.active {
-            background-color: #ccc;
-        }
-
-        /* Style the tab content */
-        .tabcontent {
-            display: block;
-            padding: 6px 12px;
-            border-top: none;
-
-        }
-
-    </style>
     <section class="afterwar_part">
 
-
-
-
         <div class="row justify-content-between">
-            <div class="container">
+            <div class="container" style="max-width: 100%">
                 <div class="col-lg-12" style="margin-top: 15%;">
-                    <div class="row">
-                        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
-                            id="bootstrap-css">
-                        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-                        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                        <!------ Include the above in your HEAD tag ---------->
+                    <div class="row" >
 
-                        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-                            integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-                            crossorigin="anonymous">
-                        <div class="container">
+                                
 
-                            {{-- Album tabs --}}
-                            <div class="tab">
-                                @foreach ($allAlbums as $album)
-                                <button class="tablinks "
-                                    onclick="openCity(event, {{ $album->id }})">{{ $album->album_name }}</button>
-                                @endforeach
-                            </div>
+                                <div class="container" style="max-width: 100%">
 
+                                    <h6 class="title">PHOTO GALLERY</h6>
 
+                                    <div class="row ">
 
-                            <div class="row">
+                                        @foreach ($allAlbums as $album)
 
-                                <div class="row">
-
-                                    @foreach ($allAlbums as $album)
-
-
-                                    <div id="{{ $album->id }}" class="tabcontent">
-
-
-                                            @forelse ($allPhotos as $photo)
-
-                                                @if ($album->id == $photo->album_id )
-
-                                                    <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="float: left">
-                                                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal"
-                                                            data-title=""
-                                                            data-image="{{asset('assets/images/photoGallery/'.$photo->photo_link)}}"
-                                                            data-target="#image-gallery">
-                                                            <img class="img-thumbnail"
-                                                                src="{{asset('assets/images/photoGallery/'.$photo->photo_link)}}"
-                                                                alt="{{$photo->photo_name  }}">
-                                                        </a>
-                                                    </div>
-                                                    
-                                                @endif
-                                            @endforeach
-
-                                        
-                                            
-                                        
-
-                                    </div>
-
-                                    @endforeach
-
-
-                                </div>
-
-                                <script type="text/javascript">
-                                    let modalId = $('#image-gallery');
-
-                                    $(document)
-                                        .ready(function () {
-
-                                            loadGallery(true, 'a.thumbnail');
-
-                                            //This function disables buttons when needed
-                                            function disableButtons(counter_max, counter_current) {
-                                                $('#show-previous-image, #show-next-image')
-                                                    .show();
-                                                if (counter_max === counter_current) {
-                                                    $('#show-next-image')
-                                                        .hide();
-                                                } else if (counter_current === 1) {
-                                                    $('#show-previous-image')
-                                                        .hide();
-                                                }
+                                        @php
+                                            $firstPhoto = App\GalleryPhoto::where('album_id', $album->id)->pluck('photo_link')->first();
+                                            if ($firstPhoto == '') {
+                                                $firstPhoto = 'no.png';
                                             }
+                                        @endphp
 
-                                            /**
-                                             *
-                                             * @param setIDs        Sets IDs when DOM is loaded. If using a PHP counter, set to false.
-                                             * @param setClickAttr  Sets the attribute for the click handler.
-                                             */
-
-                                            function loadGallery(setIDs, setClickAttr) {
-                                                let current_image,
-                                                    selector,
-                                                    counter = 0;
-
-                                                $('#show-next-image, #show-previous-image')
-                                                    .click(function () {
-                                                        if ($(this)
-                                                            .attr('id') === 'show-previous-image') {
-                                                            current_image--;
-                                                        } else {
-                                                            current_image++;
-                                                        }
-
-                                                        selector = $('[data-image-id="' + current_image + '"]');
-                                                        updateGallery(selector);
-                                                    });
-
-                                                function updateGallery(selector) {
-                                                    let $sel = selector;
-                                                    current_image = $sel.data('image-id');
-                                                    $('#image-gallery-title')
-                                                        .text($sel.data('title'));
-                                                    $('#image-gallery-image')
-                                                        .attr('src', $sel.data('image'));
-                                                    disableButtons(counter, $sel.data('image-id'));
-                                                }
-
-                                                if (setIDs == true) {
-                                                    $('[data-image-id]')
-                                                        .each(function () {
-                                                            counter++;
-                                                            $(this)
-                                                                .attr('data-image-id', counter);
-                                                        });
-                                                }
-                                                $(setClickAttr)
-                                                    .on('click', function () {
-                                                        updateGallery($(this));
-                                                    });
-                                            }
-                                        });
-
-                                    // build key actions
-                                    $(document)
-                                        .keydown(function (e) {
-                                            switch (e.which) {
-                                                case 37: // left
-                                                    if ((modalId.data('bs.modal') || {})._isShown && $(
-                                                            '#show-previous-image').is(":visible")) {
-                                                        $('#show-previous-image')
-                                                            .click();
-                                                    }
-                                                    break;
-
-                                                case 39: // right
-                                                    if ((modalId.data('bs.modal') || {})._isShown && $(
-                                                            '#show-next-image').is(":visible")) {
-                                                        $('#show-next-image')
-                                                            .click();
-                                                    }
-                                                    break;
-
-                                                default:
-                                                    return; // exit this handler for other keys
-                                            }
-                                            e.preventDefault(); // prevent the default action (scroll / move caret)
-                                        });
-
-                                </script>
-
-
-                                <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog"
-                                    aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title" id="image-gallery-title"></h4>
-                                                <button type="button" class="close" data-dismiss="modal"><span
-                                                        aria-hidden="true">×</span><span class="sr-only">Close</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img id="image-gallery-image" class="img-responsive col-md-12" src="">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary float-left"
-                                                    id="show-previous-image"><i class="fa fa-arrow-left"></i>
-                                                </button>
-
-                                                <button type="button" id="show-next-image"
-                                                    class="btn btn-secondary float-right"><i
-                                                        class="fa fa-arrow-right"></i>
-                                                </button>
+                                        <div class="col-lg-4 mt-5">
+                                            <div class="image-wrap ">
+                                                <div class="image-info">
+                                                    <h2 class="mb-3">{{$album->album_name}}</h2>
+                                                    <a href="photos/{{ $album->id }}" class="btn btn-outline-white py-2 px-4 ">More Photos</a>
+                                                </div>
+                                                <img src="{{asset('assets/images/photoGallery/'.$firstPhoto)}}" alt=""
+                                                    class="img-fluid" >
                                             </div>
                                         </div>
+                                        @endforeach
                                     </div>
+
                                 </div>
-                            </div>
-                        </div>
+
+                           
                     </div>
                 </div>
-
             </div>
-
         </div>
     </section>
 
-    {{-- script for Album tabs --}}
-
-    <script>
-        function openCity(evt, cityName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-
-    </script>
 
     <script src="{{ asset('frontEnd/js') }}/jquery-1.12.4.min.js"></script>
     <script src="{{ asset('frontEnd/js') }}/popper.min.js"></script>
     <script src="{{ asset('frontEnd/js') }}/bootstrap.min.js"></script>
     <script src="{{ asset('frontEnd/js') }}/custom.js"></script>
+
 </body>
 
 </html>

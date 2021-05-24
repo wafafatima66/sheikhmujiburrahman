@@ -12,10 +12,12 @@ use App\GalleryPhoto;
 use App\History;
 use App\KnowMore;
 use App\Logo;
+use App\Modules;
 use App\MujibHistory;
 use App\MujibLife;
 use App\MujibPublication;
 use App\MujibSpeech;
+use App\Permission;
 use App\User;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -30,9 +32,10 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        /* $this->middleware('auth');
         // $this->middleware('factorchecker');
         $this->middleware('SiteRes');
-        $this->middleware('SiteChecker');
+        $this->middleware('SiteChecker'); */
     }
 
     /**
@@ -758,6 +761,31 @@ class HomeController extends Controller
         return back()->with('greenStatus', 'Updated👍');
     }
 
+    // USER ROLES 
+
+    function userRole($id)
+    {
+        $user = User::findOrFail($id);
+        $modules = Modules::all();
+        return view('dashboard/editUserRole', compact('user'),compact('modules'));
+        
+        
+    }
+
+    function updateUserRole(Request $request)
+    {
+         $modules = $request->input('module') ; 
+        
+        foreach ($modules as $module){
+         Permission::insertGetId([
+            'user_id' => $request->user_id,
+            'module_id' => $module
+        ]);
+         }
+        return back()->with('greenStatus', 'Updated User Role 👍');
+       
+    }
+
     //PHOTO GALLERY 
 
     function addPhoto()
@@ -799,9 +827,19 @@ class HomeController extends Controller
             'album_name' => 'required'
         ]);
 
-        $lastId = GalleryAlbum::insertGetId([
+        $lastId =  GalleryAlbum::insertGetId([
             'album_name' => $request->album_name
         ]);
+
+        // if ($request->hasFile('photo_link')) {
+        //     $photo = $request->photo_link;
+        //     $photoName = $lastId . '.' . $photo->getClientOriginalExtension();
+        //     Image::make($photo)->resize(2092, 1113)->save(base_path("public/assets/images/photoGallery/" . $photoName), 100);
+        //     // Image::make($photo)->resize(20, 20)->save(base_path("public/frontEnd/img/" . $photoName), 100);
+        //     GalleryAlbum::findOrFail($lastId)->update([
+        //         'photo_link' => $photoName,
+        //     ]);
+        // }
 
         return back()->with('greenStatus', 'Saved👍');
     }

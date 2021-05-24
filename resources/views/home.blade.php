@@ -25,30 +25,29 @@
 @endsection --}}
 
 
+<style>
+    .report-col{
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 32px;
+        height: 100%;
+        margin: 10px;
+    }
+    .report-col i {
+        color: #536DFE;
+        font-size: 45px;
+    }
+    .report-col  .counter {
+        font-size: 45px;
+    }
+    
+    
+    </style>
+    
 @extends('layouts.dashboard.frontEndApp')
 
 
 
-<style>
-.report-col{
-    box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
-          0 2px 2px rgba(0,0,0,0.11), 
-          0 4px 4px rgba(0,0,0,0.11), 
-          0 6px 6px rgba(0,0,0,0.11);
-    margin: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-}
-.report-col i {
-    color: lightskyblue;
-    margin-bottom: 5px;
-}
-.report-col  .counter {
-	font-size: 45px;
-	margin: 10px 0;
-}
-
-</style>
 
 @section('pageHeading')
 DashBoard
@@ -59,22 +58,41 @@ DashBoard
 <div class="container" style="width: 100%">
 
     <div class="row">
-        <div class="col-lg-3 report-col">
+        <div class="col-lg-4 report-col">
+            <a href="{{route('articleList')}}">
+                    <div class="row">
 
-                    <div class="text-center">
-                        <i class="fas fa-newspaper fa-4x mt-3"></i>
-                        <div class="counter" data-target="{{ $articleCount }}">0</div>
-                        <h3 class="mb-3">Total Article</h3>
+                        <div class="col-lg text-center mt-4 ">
+                            <i class="fas fa-newspaper fa-4x "></i>
+                        </div>
+
+                        
+                        <div class="col-lg ml-0 pl-0">
+                            <h6 class=" text-muted mb-3">Total Article</h6>
+                            <h2 class="counter mb-0" data-target="">{{ $articleCount }}</h2>
+                        </div>
+                        
                     </div>
-                
+                </a>
         </div>
 
-         <div class="col-lg-3 report-col">
-            <div class="text-center">
-                <i class="fas fa-users fa-4x mt-3"></i>
-                <div class="counter" data-target="{{ $userCount }}">0</div>
-                <h3 class="mb-3">Total User</h3>
+         <div class="col-lg-4 report-col">
+             <a href="{{route('allusers')}}">
+            <div class="row">
+
+                <div class="col-lg text-center mt-4 ">
+                    <i class="fas fa-users fa-4xx "></i>
+                </div>
+
+                
+                <div class="col-lg ml-0 pl-0">
+                    <h6 class=" text-muted mb-3">Total User</h6>
+                    <h2 class="counter mb-0" data-target="">{{ $userCount }}</h2>
+                </div>
+                
             </div>
+
+            </a>
         </div>
 
         
@@ -82,7 +100,7 @@ DashBoard
 </div>
 
 
-
+{{-- 
 <script>
  const counters = document.querySelectorAll('.counter');
 const speed = 5; // The lower the slower
@@ -111,5 +129,5 @@ counters.forEach(counter => {
 
 	updateCount();
 });
-</script>
+</script> --}}
 @endsection

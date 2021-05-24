@@ -13,7 +13,7 @@
 
 @endsection
 @section('pageHeading')
-    Users Setting 
+    Add Users 
 @endsection
 @section('content')
 

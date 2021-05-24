@@ -100,15 +100,24 @@ class FrontEndController extends Controller
     public function photo_gallery(){
         //$allArticle = Article::all();
         $logo = Logo::where('activation', 1)->first('logo');
-        $allPhotos = GalleryPhoto::all();
         $allAlbums = GalleryAlbum::all();
         $data = array(
-            'allPhotos' => $allPhotos,
             'logo'=> $logo,
             'allAlbums'=> $allAlbums
         );
         return view('photo_gallery')->with($data);
 
+    }
+
+    function viewPhotos($id){
+        $logo = Logo::where('activation', 1)->first('logo');
+        // $allPhotos = GalleryPhoto::all();
+        $allPhotos = GalleryPhoto::where('album_id', $id)->get();
+        $data = array(
+            'logo'=> $logo,
+            'allPhotos'=> $allPhotos
+        );
+        return view('photos')->with($data);
     }
 
      

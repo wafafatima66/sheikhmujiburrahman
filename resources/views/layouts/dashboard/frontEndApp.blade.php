@@ -36,73 +36,110 @@
 
     </head>
    
-    <style>
-       
-        .button-menu-mobile, .topbar .topbar-left , .navbar-custom{
-            background-color: #448AFF;
-        }
-        .side-menu{
-            background-color: #fff;
-        }
-        #sidebar-menu > ul > li > a  {
-            color: #222;
-        }
-
-        #sidebar-menu > ul > li > a.active,#sidebar-menu > ul > li > a:hover, #sidebar-menu > ul > li > a:focus, #sidebar-menu > ul > li > a:active{
-            color: #fff;
-            background-color:  #448AFF;
-        }
+<style>
     
-        .nav-second-level li a{
-            color: #222;
-        }
-        .nav-second-level > li > .nav-second-level-list{
-            color: #222;
-        }
-       
-        .nav-second-level li.active > a , .nav-second-level > li > a:hover, .nav-second-level > li > a:active, .nav-second-level > li > a:focus, .nav-second-level > li > a:active{
-            background-color:  #448AFF;
-        }
-     
-        .nav-second-level > li > .nav-second-level-list:hover, .nav-second-level > li > .nav-second-level-list:active, .nav-second-level > li > .nav-second-level-list:focus, .nav-second-level > li > .nav-second-level-list:active{
-            background-color:  #448AFF;
-            color: #fff ;
-        }
-        /* .page-title-box{
-            background-color:  #6B8EC9;
-        } */
-    </style>
+    .button-menu-mobile, .topbar .topbar-left , .navbar-custom{
+        background-color: #448AFF;
+    }
+    .side-menu{
+        background-color: #fff;
+    }
+    #sidebar-menu > ul > li > a  {
+        color: #222;
+    }
 
-    <body>
+    #sidebar-menu > ul > li > a.active,#sidebar-menu > ul > li > a:hover, #sidebar-menu > ul > li > a:focus, #sidebar-menu > ul > li > a:active{
+        color: #fff;
+        background-color:  #536DFE;
+    }
+
+    .nav-second-level li a{
+        color: #222;
+    }
+    .nav-second-level > li > .nav-second-level-list{
+        color: #222;
+    }
+    
+    .nav-second-level li.active > a , .nav-second-level > li > a:hover, .nav-second-level > li > a:active, .nav-second-level > li > a:focus, .nav-second-level > li > a:active{
+        background-color:  #536DFE;
+    }
+    
+    .nav-second-level > li > .nav-second-level-list:hover, .nav-second-level > li > .nav-second-level-list:active, .nav-second-level > li > .nav-second-level-list:focus, .nav-second-level > li > .nav-second-level-list:active{
+        background-color:  #536DFE;
+        color: #fff ;
+    }
+    .page-title-box{
+        background-color:  #536DFE;
+    }
+    .page-title{
+        color: #fff;
+    }
+    /*  .breadcrumb a{
+        color: rgb(219, 210, 210);
+    } */
+    .breadcrumb-item,.breadcrumb-item +.breadcrumb-item::before,.breadcrumb a{
+        color: #dfe8f0; 
+    }
+    .breadcrumb-item.active {
+        color: #fff;
+    }
+    
+</style>
+
+<body>
+
+    {{-- if auth user == 2 , it is admin 
+            Article == 2 , theme setting == 3 , 
+        --}}
+
+@php
+
+
+$permissions = App\Permission::where('user_id', Auth::user()->id)->get();
+
+$modules = [];
+
+foreach($permissions as $permission){
+    
+    $modules[] = $permission->module_id;
+}
+
+$modules = array_unique($modules);
+
+$admin = 2 ;  //admin here is user-id number 2 
+$dashboardLink = 1 ; $articleLink = 2 ; $themeLink = 3 ; //mentioning menu ids statically , but refer to the database for the id , 
+
+@endphp
+
+
 
         <!-- Begin page -->
         <div id="wrapper">
-
+           
             <!-- Top Bar Start -->
             <div class="topbar">
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="index.html" class="logo">
+                    <a href="index.html" class="logo" >
                                 <span>
-                                    <img src="{{ asset('assets/images/logo.png') }}" alt="" height="25" >
+                                    <img src="{{ asset('assets/images/logo.png') }}" alt="" height="25" style="margin-top:24px">
                                 </span>
                         <i>
-                            <img src="{{ asset('assets/images/logo_sm.png') }}" alt="" height="28">
+                            <img src="{{asset('assets/images/users/'. Auth::user()->photo)}}" alt="" height="28">
                         </i>
                     </a>
                 </div>
 
                 <nav class="navbar-custom">
-
-                    <ul class="list-inline float-right mb-0">
-
+                    
+                    <ul class="list-inline float-right mb-0">                       
 
                         <li class="list-inline-item dropdown notification-list">
                             <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                                aria-haspopup="false" aria-expanded="false">
                                {{ Auth::user()->name }}
-                                <img src="{{asset('assets/images/users/avatar-1.jpg')}}" alt="user" class="rounded-circle">
+                                <img src="{{asset('assets/images/users/'. Auth::user()->photo)}}" alt="" class="rounded-circle" >
 
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
@@ -136,14 +173,14 @@
 
                     </ul>
 
-                    <ul class="list-inline menu-left mb-0">
+                   {{--  <ul class="list-inline menu-left mb-0">
                         <li class="float-left">
                             <button class="button-menu-mobile open-left waves-light waves-effect">
                                 <i class="dripicons-menu"></i>
                             </button>
                         </li>
                         @yield('searchpanel')
-                    </ul>
+                    </ul> --}}
 
                 </nav>
 
@@ -171,24 +208,29 @@
                                 </ul> --}}
                             </li>
 
-                            <li>
-                                <a href="{{route('home')}}">
+                            @if(in_array($dashboardLink, $modules) || Auth::user()->id == $admin)
+                                <li>
+                                    <a href="{{route('home')}}">
                                     <i class="fas fa-tachometer-alt "></i>Dashboard
                                     </a>
                                 </li>
+                            @endif
 
-                            <li>
-                                <a><i class="fas fa-newspaper  "></i>Articles<span class="menu-arrow"></span></a>
-
-                                <ul class="nav-second-level" aria-expanded=false>
-                                    <li><a href="{{route('articleList')}}">Article List</a></li>
-                                    <li><a href="{{route('addArticle')}}">Add Article</a></li>
-                                </ul>
-                            </li>
+                                @if(in_array($articleLink, $modules) || Auth::user()->id == $admin)
+                                    <li>
+                                        <a><i class="fas fa-newspaper  "></i>Articles<span class="menu-arrow"></span></a>
+        
+                                        <ul class="nav-second-level" aria-expanded=false>
+                                            <li><a href="{{route('articleList')}}">Article List</a></li>
+                                            <li><a href="{{route('addArticle')}}">Add Article</a></li>
+                                        </ul>
+                                    </li>
+                                @endif
+                           
 
 
                           
-
+                                @if(in_array($themeLink, $modules) || Auth::user()->id == $admin)
                             <li>
                                 <a>
                                     <i class="fi-help "></i>Theme Settings <span class="menu-arrow"></span>
@@ -226,7 +268,7 @@
                                     <li><a href=" {{route('mujibPublicationdash')}} ">Bongobondhu Publication</a></li>
                                     <li><a href=" {{route('knowmoredash')}} ">Bongobondhu Know More</a></li>
                                     
-                                    @if (Auth::user()->userType != 1)
+                                    @if (Auth::user()->id == $admin)
 
                                         <li>
                                             <a href=" {{route('allusers')}} ">All Users<i class=" fas fa-caret-down "></i></a>
@@ -242,7 +284,7 @@
                                     <li><a href=" {{route('addPhoto')}} ">Photo Gallery</a></li>
                                 </ul>
                             </li>
-
+                            @endif
                         </ul>
 
                     </div>
@@ -271,7 +313,7 @@
                                     <h4 class="page-title float-left">@yield('pageHeading')</h4>
 
                                     <ol class="breadcrumb float-right">
-                                        <li class="breadcrumb-item"><a href="{{__('/')}}">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
                                         <li class="breadcrumb-item active">@yield('pageHeading')</li>
                                     </ol>
 
