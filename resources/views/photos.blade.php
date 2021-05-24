@@ -105,7 +105,7 @@
                                     background-color: #fff;
                                     border: none ;
                                     border-radius: 0;
-                                    max-width: 100%;
+                                    width: 100%;
                                     filter: grayscale(100%);
                                 }
                                 .img-thumbnail:hover{
@@ -120,17 +120,13 @@
 
                             <div class="row">
                                
-                                 
-                                
-                                
-
                                 <div class="row">
 
                                     
 
                                     @forelse ($allPhotos as $photo)
 
-                                    <div class="col-lg-3 col-md-4 col-xs-6 col-sm-6 thumb mt-5">
+                                    <div class="col-lg-3 col-md-4 col-sm-6 thumb mt-5">
                                         <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
                                             data-image="{{asset('assets/images/photoGallery/'.$photo->photo_link)}}"
                                             data-target="#image-gallery">
