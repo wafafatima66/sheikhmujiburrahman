@@ -30,11 +30,20 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '084e34612b83c394bc5c91e71922ae8212c8ad82',
+    'reference' => 'f538bcd1865fe529a1b76251df6fac8ab82c9f50',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
   array (
+    'authy/php' => 
+    array (
+      'pretty_version' => '3.0.5',
+      'version' => '3.0.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7bb63790e2cc32a9113bdef236017f8284e0381e',
+    ),
     'bacon/bacon-qr-code' => 
     array (
       'pretty_version' => '2.0.3',
@@ -166,6 +175,24 @@ private static $installed = array (
         0 => '1.9.x-dev',
       ),
       'reference' => '5ffe7db6c80f441f150fc88008d64e64af66634b',
+    ),
+    'guzzlehttp/guzzle' => 
+    array (
+      'pretty_version' => '6.5.5',
+      'version' => '6.5.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9d4290de1cfd701f38099ef7e183b64b4b7b0c5e',
+    ),
+    'guzzlehttp/promises' => 
+    array (
+      'pretty_version' => '1.4.1',
+      'version' => '1.4.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8e7d04f1f6450fef59366c399cfad4b9383aa30d',
     ),
     'guzzlehttp/psr7' => 
     array (
@@ -427,7 +454,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '084e34612b83c394bc5c91e71922ae8212c8ad82',
+      'reference' => 'f538bcd1865fe529a1b76251df6fac8ab82c9f50',
     ),
     'laravel/tinker' => 
     array (
@@ -757,8 +784,8 @@ private static $installed = array (
     array (
       'provided' => 
       array (
-        0 => '1.0',
-        1 => '1.0.0',
+        0 => '1.0.0',
+        1 => '1.0',
       ),
     ),
     'psr/simple-cache' => 

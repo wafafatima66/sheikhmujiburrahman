@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Authy\AuthyApi;
 
 class LoginController extends Controller
 {
@@ -20,6 +21,7 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+   
 
     /**
      * Where to redirect users after login.
@@ -36,5 +38,13 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        $authy_api = new AuthyApi(getenv("AUTHY_SECRET"));
+        $authy_api->requestSms($user->authy_id);
+        \session(['isVerified' => false]);
+        return \redirect('verify');
     }
 }

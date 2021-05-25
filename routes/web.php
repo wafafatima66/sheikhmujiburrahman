@@ -11,6 +11,10 @@ Auth::routes();
 // Dashboard home
 Route::get('/home', 'HomeController@index')->name('home');
 
+// authy
+Route::get('/verify', 'VerifyController@index')->name('verify');
+Route::post('/verify', 'VerifyController@verify')->name('verify');
+
 // Article Front End
 Route::get('/Read/More', 'FrontEndController@readMore')->name('readMore');
 Route::get('/article/details/{id}', 'FrontEndController@articledetails')->name('articledetails');

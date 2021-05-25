@@ -2,6 +2,18 @@
 
 @section('content')
 <div class="container">
+
+    @if(count($errors) > 0)
+<div class="p-1">
+    @foreach($errors->all() as $error)
+    <div class="alert alert-warning alert-danger fade show" role="alert">{{$error}} <button type="button" class="close"
+            data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button></div>
+    @endforeach
+</div>
+@endif
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -32,6 +44,32 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="tel" class="form-control  @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required>
+
+                                @error('phone_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="country_code" class="col-md-4 col-form-label text-md-right">{{ __('Country Code') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="country_code" type="tel" class="form-control @error('country_code') is-invalid @enderror" name="country_code" value="{{ old('country_code') }}" placeholder="880" required>
+
+                                @error('country_code')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

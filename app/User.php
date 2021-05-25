@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','userType','userActivation','phone','photo','status'
+        'name', 'email', 'password','userType','userActivation','phone_number','photo','authy_id'
     ];
 
     /**
@@ -36,8 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function passwordSecurity()
-    {
-        return $this->hasOne('App\PasswordSecurity');
-    }
+
+    // public function passwordSecurity()
+    // {
+    //     return $this->hasOne('App\PasswordSecurity');
+    // }
+
+    
 }

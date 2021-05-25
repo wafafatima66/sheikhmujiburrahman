@@ -22,6 +22,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
+use Authy\AuthyApi;
+
 class HomeController extends Controller
 {
     /**
@@ -698,6 +700,9 @@ class HomeController extends Controller
 
     function storeUser(Request $request)
     {
+        $authy_api = new AuthyApi(getenv("AUTHY_SECRET"));
+        $authy_user = $authy_api->registerUser($request['email'], $request['phone'], $request['country_code']);
+
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -711,7 +716,8 @@ class HomeController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'phone' => $request->phone,
-            'photo' => $request->photo
+            'photo' => $request->photo,
+            'authy_id' => $authy_user->id()
 
         ]);
 

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\User;
+use Authy\AuthyApi;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -20,7 +20,7 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-    */
+     */
 
     use RegistersUsers;
 
@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -39,7 +39,6 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->middleware('auth');
     }
 
     /**
@@ -54,6 +53,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone_number' => ['required', 'string'],
+            'country_code' => ['required', 'string'],
         ]);
     }
 
@@ -65,10 +66,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $authy_api = new AuthyApi(getenv("AUTHY_SECRET"));
+        $authy_user = $authy_api->registerUser($data['email'], $data['phone_number'], $data['country_code']);
+
+        // if($user->ok()) {
+        //     printf($user->id());
+        // } else {
+        //     foreach($user->errors() as $field => $message) {
+        //         printf("$field = $message\n");
+        //     }
+        // }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'phone_number' => $data['phone_number'],
+            'authy_id' => $authy_user->id()
         ]);
     }
 }

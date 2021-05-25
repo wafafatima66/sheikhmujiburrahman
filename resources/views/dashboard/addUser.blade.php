@@ -42,9 +42,17 @@
           <input name="password_confirmation" type="password" class="form-control">
         </div>
 
+      
+        <div class="form-group">
+          <select name="country_code" style="width: 150px;">
+            <option value="+88">(+88) BD </option>
+          </select>
+        </div>  
+
+
         <div class="form-group">
           <label for="exampleInputEmail1">Phone Number</label>
-          <input class="form-control" type="tel"  name="phone"> 
+          <input class="form-control" type="text"  name="phone" required> 
         </div>
         
       
