@@ -700,16 +700,24 @@ class HomeController extends Controller
 
     function storeUser(Request $request)
     {
-        $authy_api = new AuthyApi(getenv("AUTHY_SECRET"));
-        $authy_user = $authy_api->registerUser($request['email'], $request['phone'], $request['country_code']);
+        // $authy_api = new AuthyApi(getenv("AUTHY_SECRET"));
+        // $user = $authy_api->registerUser($request['email'], $request['phone'], $request['country_code']);
 
         $request->validate([
             'name' => 'required',
             'email' => 'required',
             'password' => 'required|confirmed',
-            'phone' => 'required',
+            'phone' => ['required', 'string'],
             'photo' => 'required'
         ]);
+
+        //  if($user->ok()) {
+        //     printf($user->id());
+        // } else {
+        //     foreach($user->errors() as $field => $message) {
+        //         printf("$field = $message\n");
+        //     }
+        // }
 
         $lastId = User::insertGetId([
             'name' => $request->name,
@@ -717,7 +725,7 @@ class HomeController extends Controller
             'password' => Hash::make($request->password),
             'phone' => $request->phone,
             'photo' => $request->photo,
-            'authy_id' => $authy_user->id()
+            // 'authy_id' => $authy_user->id()
 
         ]);
 

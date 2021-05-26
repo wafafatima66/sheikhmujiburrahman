@@ -20,7 +20,7 @@
 <div class="container " style="width: 50%">
 
 
-      <form enctype="multipart/form-data" action="{{route('storeUser') }}" method="POST" >
+      <form enctype="multipart/form-data" action="{{ route('storeUser') }}" method="POST" >
         @csrf
         <div class="form-group">
             <label for="exampleInputEmail1">Name</label>
@@ -44,8 +44,8 @@
 
       
         <div class="form-group">
-          <select name="country_code" style="width: 150px;">
-            <option value="+88">(+88) BD </option>
+          <select name="country_code" style="width: 150px;" class="form-control">
+            <option value="880">(+88) BD </option>
           </select>
         </div>  
 

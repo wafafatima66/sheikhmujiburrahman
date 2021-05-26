@@ -50,7 +50,7 @@
 
     #sidebar-menu > ul > li > a.active,#sidebar-menu > ul > li > a:hover, #sidebar-menu > ul > li > a:focus, #sidebar-menu > ul > li > a:active{
         color: #fff;
-        background-color:  #536DFE;
+        background-color:  #3F629D;
     }
 
     .nav-second-level li a{
@@ -61,15 +61,15 @@
     }
     
     .nav-second-level li.active > a , .nav-second-level > li > a:hover, .nav-second-level > li > a:active, .nav-second-level > li > a:focus, .nav-second-level > li > a:active{
-        background-color:  #536DFE;
+        background-color:  #3F629D;
     }
     
     .nav-second-level > li > .nav-second-level-list:hover, .nav-second-level > li > .nav-second-level-list:active, .nav-second-level > li > .nav-second-level-list:focus, .nav-second-level > li > .nav-second-level-list:active{
-        background-color:  #536DFE;
+        background-color:  #3F629D;
         color: #fff ;
     }
     .page-title-box{
-        background-color:  #536DFE;
+        background-color:  #3F629D;
     }
     .page-title{
         color: #fff;
@@ -83,7 +83,14 @@
     .breadcrumb-item.active {
         color: #fff;
     }
-    
+    .logo-title{
+        color:#fff;
+        font-size:20px;
+        margin-top:25px;
+    }
+    .notification-list .noti-title{
+        background-color:  #3F629D;
+    }
 </style>
 
 <body>
@@ -122,9 +129,8 @@ $dashboardLink = 1 ; $articleLink = 2 ; $themeLink = 3 ; //mentioning menu ids s
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <a href="index.html" class="logo" >
-                                <span>
-                                    <img src="{{ asset('assets/images/logo.png') }}" alt="" height="25" style="margin-top:24px">
-                                </span>
+                              
+                              <h2 class="logo-title">Admin Panel</h2>
                         <i>
                             <img src="{{asset('assets/images/users/'. Auth::user()->photo)}}" alt="" height="28">
                         </i>

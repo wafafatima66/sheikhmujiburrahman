@@ -38,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        // $this->middleware('guest');
     }
 
     /**
@@ -67,22 +67,24 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $authy_api = new AuthyApi(getenv("AUTHY_SECRET"));
-        $authy_user = $authy_api->registerUser($data['email'], $data['phone_number'], $data['country_code']);
+        $user = $authy_api->registerUser($data['email'], $data['phone_number'], $data['country_code']);
 
-        // if($user->ok()) {
-        //     printf($user->id());
-        // } else {
-        //     foreach($user->errors() as $field => $message) {
-        //         printf("$field = $message\n");
-        //     }
-        // }
+       
 
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'phone_number' => $data['phone_number'],
-            'authy_id' => $authy_user->id()
-        ]);
+       if($user->ok()) {
+            printf($user->id());
+        } else {
+            foreach($user->errors() as $field => $message) {
+                printf("$field = $message\n");
+            }
+        }
+
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        //     'phone' => $data['phone'],
+        //     'authy_id' => $authy_user->id()
+        // ]);
     }
 }

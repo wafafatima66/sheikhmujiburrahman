@@ -142,9 +142,12 @@
 
                                 
 
-                                <div class="container" style="max-width: 100%">
+                                <div class="container" >
 
-                                    <h6 class="title">PHOTO GALLERY</h6>
+                                    <div class="text-center">
+                                        <h6 class="title">OUR ALBUMS</h6>
+                                    </div>
+                                   
 
                                     <div class="row ">
 

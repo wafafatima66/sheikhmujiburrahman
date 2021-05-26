@@ -40,11 +40,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function authenticated(Request $request, $user)
-    {
-        $authy_api = new AuthyApi(getenv("AUTHY_SECRET"));
-        $authy_api->requestSms($user->authy_id);
-        \session(['isVerified' => false]);
-        return \redirect('verify');
-    }
+    // protected function authenticated(Request $request, $user)
+    // {
+    //     $authy_api = new AuthyApi(getenv("AUTHY_SECRET"));
+    //     $authy_api->requestSms($user->authy_id);
+    //     \session(['isVerified' => false]);
+    //     return \redirect('verify');
+    // }
 }

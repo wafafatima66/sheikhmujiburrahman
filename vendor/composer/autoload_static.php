@@ -527,6 +527,7 @@ class ComposerStaticInit99c1be974cc0c40153853107d9e6c629
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PasswordSecurityController' => __DIR__ . '/../..' . '/app/Http/Controllers/PasswordSecurityController.php',
         'App\\Http\\Controllers\\SuperController' => __DIR__ . '/../..' . '/app/Http/Controllers/SuperController.php',
+        'App\\Http\\Controllers\\VerifyController' => __DIR__ . '/../..' . '/app/Http/Controllers/VerifyController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
