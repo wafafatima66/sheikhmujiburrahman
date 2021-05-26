@@ -13,14 +13,14 @@ class Authenticate extends Middleware
      * @return string|null
      */
 
-    public function handle($request, $next, ...$guards)
-    {
-        $this->authenticate($request, $guards);
-        if (session("isVerified")) {
-            return $next($request);
-        }
-        return \redirect('verify');
-    }
+    // public function handle($request, $next, ...$guards)
+    // {
+    //     $this->authenticate($request, $guards);
+    //     if (session("isVerified")) {
+    //         return $next($request);
+    //     }
+    //     return \redirect('verify');
+    // }
     
     protected function redirectTo($request)
     {
