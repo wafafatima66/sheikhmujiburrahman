@@ -9,11 +9,15 @@ Route::get('/', 'FrontEndController@welcome')->name('welcome');
 Auth::routes();
 
 // Dashboard home
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware(['auth', 'twofactor']);;
 
 // authy
-Route::get('/verify', 'VerifyController@index')->name('verify');
-Route::post('/verify', 'VerifyController@verify')->name('verify');
+// Route::get('/verify', 'VerifyController@index')->name('verify');
+// Route::post('/verify', 'VerifyController@verify')->name('verify');
+
+// 2FA MAIL 
+Route::get('verify/resend', 'Auth\TwoFactorController@resend')->name('verify.resend');
+Route::resource('verify', 'Auth\TwoFactorController')->only(['index', 'store']);
 
 // Article Front End
 Route::get('/Read/More', 'FrontEndController@readMore')->name('readMore');
@@ -150,6 +154,8 @@ Route::post('/storeUser', 'HomeController@storeUser')->name('storeUser');
 Route::get('/addUser', 'HomeController@addUser')->name('addUser');
 Route::get('/editUser/{id}', 'HomeController@editUser');
 Route::post('/updateUser', 'HomeController@updateUser')->name('updateUser');
+
+// Route::get('/showvalue', 'HomeController@showvalue')->name('showvalue');
 
 // USER ROLES 
 Route::get('/userRole/{id}', 'HomeController@userRole');

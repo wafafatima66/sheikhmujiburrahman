@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone_number' => ['required', 'string'],
+            'phone' => ['required', 'string'],
             'country_code' => ['required', 'string'],
         ]);
     }
@@ -66,18 +66,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $authy_api = new AuthyApi(getenv("AUTHY_SECRET"));
-        $user = $authy_api->registerUser($data['email'], $data['phone_number'], $data['country_code']);
+        // $authy_api = new AuthyApi(getenv("AUTHY_SECRET"));
+        // $authy_user = $authy_api->registerUser($data['email'], $data['phone'], $data['country_code']);
 
-       
+       echo (getenv("AUTHY_SECRET"));
 
-       if($user->ok()) {
-            printf($user->id());
-        } else {
-            foreach($user->errors() as $field => $message) {
-                printf("$field = $message\n");
-            }
-        }
+    //    if($authy_user->ok()) {
+    //         printf($authy_user->id());
+    //     } else {
+    //         foreach($authy_user->errors() as $field => $message) {
+    //             printf("$field = $message\n");
+    //         }
+    //     }
 
         // return User::create([
         //     'name' => $data['name'],

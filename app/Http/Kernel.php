@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
         'SiteRes' => \App\Http\Middleware\SiteResMiddleware::class,
         'factorchecker' => \App\Http\Middleware\FactorChecker::class,
         'SiteChecker' => \App\Http\Middleware\SiteChecker::class,
+        'twofactor'     => \App\Http\Middleware\TwoFactor::class,
     ];
 
     /**

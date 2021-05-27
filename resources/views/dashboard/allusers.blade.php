@@ -19,7 +19,7 @@
 
 <div class="container " style="width: 90%">
 
-      <table class="table table-info">
+      <table class="table table-bordered">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Name</th>

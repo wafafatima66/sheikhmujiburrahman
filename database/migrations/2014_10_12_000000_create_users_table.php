@@ -25,7 +25,9 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->string('phone');
             $table->string('photo');
-            $table->string('authy_id');
+            // $table->string('authy_id');
+            $table->string('two_factor_code')->nullable();
+            $table->dateTime('two_factor_expires_at')->nullable();
         });
     }
 

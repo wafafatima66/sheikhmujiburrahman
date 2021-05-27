@@ -43,7 +43,7 @@ $modulesList = array_unique($modulesList);
         @csrf 
     <input type="hidden" name="user_id" value="{{ $user->id}}">
     
-      <table class="table table-info">
+      <table class="table table-bordered">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Features</th>

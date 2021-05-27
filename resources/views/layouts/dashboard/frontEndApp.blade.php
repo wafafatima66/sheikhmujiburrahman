@@ -99,25 +99,36 @@
             Article == 2 , theme setting == 3 , 
         --}}
 
-@php
+        
+        @php
+                $permissions = App\Permission::where('user_id', Auth::user()->id)->get();
+        
+        $modules = [];
+        
+        foreach($permissions as $permission){
+            
+            $modules[] = $permission->module_id;
+        }
+        
+        $modules = array_unique($modules);
+        
+        $admin = 2 ;  
+        $articleList = 2 ; 
+        $addArticle = 3 ;   
+        $logo= 4 ;
+        $firstPage = 5 ;
+        $banner = 6 ;
+        $historySettings = 7 ;
+        $mujibHistorydash = 8 ;
+        $mujibLifedash = 9 ;
+        $mujibLifedashAdd = 10;
+        $mujibSpeechdash = 11;
+        $mujibSpeechdashAdd = 12;
+        $mujibPublicationdash = 13;
+        $knowmoredash = 14;
+        $addPhoto= 15;
 
-
-$permissions = App\Permission::where('user_id', Auth::user()->id)->get();
-
-$modules = [];
-
-foreach($permissions as $permission){
-    
-    $modules[] = $permission->module_id;
-}
-
-$modules = array_unique($modules);
-
-$admin = 2 ;  //admin here is user-id number 2 
-$dashboardLink = 1 ; $articleLink = 2 ; $themeLink = 3 ; //mentioning menu ids statically , but refer to the database for the id , 
-
-@endphp
-
+       @endphp
 
 
         <!-- Begin page -->
@@ -214,65 +225,101 @@ $dashboardLink = 1 ; $articleLink = 2 ; $themeLink = 3 ; //mentioning menu ids s
                                 </ul> --}}
                             </li>
 
-                            @if(in_array($dashboardLink, $modules) || Auth::user()->id == $admin)
+                            
                                 <li>
                                     <a href="{{route('home')}}">
                                     <i class="fas fa-tachometer-alt "></i>Dashboard
                                     </a>
                                 </li>
-                            @endif
+                            
 
-                                @if(in_array($articleLink, $modules) || Auth::user()->id == $admin)
+                                
                                     <li>
                                         <a><i class="fas fa-newspaper  "></i>Articles<span class="menu-arrow"></span></a>
         
                                         <ul class="nav-second-level" aria-expanded=false>
-                                            <li><a href="{{route('articleList')}}">Article List</a></li>
-                                            <li><a href="{{route('addArticle')}}">Add Article</a></li>
+                                            @if(in_array($articleList, $modules) || Auth::user()->id == $admin)
+                                                <li><a href="{{route('articleList')}}">Article List</a></li>
+                                            @endif
+
+                                            @if(in_array($addArticle, $modules) || Auth::user()->id == $admin)
+                                                <li><a href="{{route('addArticle')}}">Add Article</a></li>
+                                            @endif
                                         </ul>
                                     </li>
-                                @endif
+                                
                            
 
 
                           
-                                @if(in_array($themeLink, $modules) || Auth::user()->id == $admin)
+                               
                             <li>
                                 <a>
                                     <i class="fi-help "></i>Theme Settings <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="{{route('logosettings')}}">Logo</a></li>
-                                    <li><a href="{{route('firstPageText')}}">First Page Text</a></li>
-                                    <li><a href=" {{route('bannerSettings')}} ">First Page Banner</a></li>
                                     
-                                    <li><a href=" {{route('historySettings')}} ">History Page</a></li>
+                                    @if(in_array($logo, $modules) || Auth::user()->id == $admin)
+                                        <li><a href="{{route('logosettings')}}">Logo</a></li>
+                                    @endif
 
-                                    <li><a href=" {{route('mujibHistorydash')}} ">Bongobondhu History</a></li>
+                                    @if(in_array($firstPage, $modules) || Auth::user()->id == $admin)
+                                        <li><a href="{{route('firstPageText')}}">First Page Text</a></li>
+                                    @endif
 
-                                    <li>
-                                        <a class="nav-second-level-list">Bongobondhu Jiboni<i class=" fas fa-caret-down  " style="margin: 0 ;"></i></a>
-                                       
-                                        <ul class="nav-second-level" aria-expanded="false">
-                                            <li><a href="{{route('mujibLifedash')}}">List</a></li>
-                                            <li><a href="{{route('mujibLifedashAdd')}}">Add New</a></li>
-                                        </ul>
+                                    @if(in_array($banner, $modules) || Auth::user()->id == $admin)
+                                        <li><a href=" {{route('bannerSettings')}} ">First Page Banner</a></li>
+                                    @endif
                                     
-                                    </li>
+                                    @if(in_array($historySettings, $modules) || Auth::user()->id == $admin)
+                                        <li><a href=" {{route('historySettings')}} ">History Page</a></li>
+                                    @endif
 
-                                    <li>
-                                        <a class="nav-second-level-list" >Bongobondhu Speech<i class="fas fa-caret-down " style="margin: 0 ;"></i></a>
+                                    @if(in_array($mujibHistorydash, $modules) || Auth::user()->id == $admin)
+                                        <li><a href=" {{route('mujibHistorydash')}} ">Bongobondhu History</a></li>
+                                    @endif
+
+                                    @if(in_array($mujibLifedash, $modules) || in_array($mujibLifedashAdd, $modules) || Auth::user()->id == $admin)
+                                        <li>
+                                            <a class="nav-second-level-list">Bongobondhu Jiboni<i class=" fas fa-caret-down  " style="margin: 0 ;"></i></a>
                                         
-                                        <ul class="nav-second-level" aria-expanded="false">
-                                            <li><a href="{{route('mujibSpeechdash')}} ">List</a></li>
-                                            <li><a href="{{route('mujibSpeechdashAdd')}} ">Add New</a></li>
-                                        </ul>
-                                    
-                                    </li>
+                                            <ul class="nav-second-level" aria-expanded="false">
+                                                @if(in_array($mujibLifedash, $modules) || Auth::user()->id == $admin)
+                                                <li><a href="{{route('mujibLifedash')}}">List</a></li>
+                                                @endif
+
+                                                @if(in_array($mujibLifedashAdd, $modules) || Auth::user()->id == $admin)
+                                                <li><a href="{{route('mujibLifedashAdd')}}">Add New</a></li>
+                                                @endif
+                                            </ul>
+                                        
+                                        </li>
+                                    @endif
+
+                                    @if(in_array($mujibSpeechdash, $modules) || in_array($mujibSpeechdashAdd, $modules) || Auth::user()->id == $admin)
+                                        <li>
+                                            <a class="nav-second-level-list" >Bongobondhu Speech<i class="fas fa-caret-down " style="margin: 0 ;"></i></a>
+                                            
+                                            <ul class="nav-second-level" aria-expanded="false">
+                                                @if(in_array($mujibSpeechdash, $modules) || Auth::user()->id == $admin)
+                                                <li><a href="{{route('mujibSpeechdash')}} ">List</a></li>
+                                                @endif
+
+                                                @if(in_array($mujibSpeechdashAdd, $modules) || Auth::user()->id == $admin)
+                                                <li><a href="{{route('mujibSpeechdashAdd')}} ">Add New</a></li>
+                                                @endif
+                                            </ul>
+                                        
+                                        </li>
+                                    @endif
                                 
-                                
+                                    @if(in_array($mujibPublicationdash, $modules) || Auth::user()->id == $admin)
                                     <li><a href=" {{route('mujibPublicationdash')}} ">Bongobondhu Publication</a></li>
+                                    @endif
+
+                                    @if(in_array($knowmoredash, $modules) || Auth::user()->id == $admin)
                                     <li><a href=" {{route('knowmoredash')}} ">Bongobondhu Know More</a></li>
+                                    @endif
                                     
                                     @if (Auth::user()->id == $admin)
 
@@ -287,10 +334,12 @@ $dashboardLink = 1 ; $articleLink = 2 ; $themeLink = 3 ; //mentioning menu ids s
 
                                     @endif
 
-                                    <li><a href=" {{route('addPhoto')}} ">Photo Gallery</a></li>
+                                    @if(in_array($addPhoto, $modules) || Auth::user()->id == $admin)
+                                        <li><a href=" {{route('addPhoto')}} ">Photo Gallery</a></li>
+                                    @endif
                                 </ul>
                             </li>
-                            @endif
+                           
                         </ul>
 
                     </div>
@@ -331,6 +380,7 @@ $dashboardLink = 1 ; $articleLink = 2 ; $themeLink = 3 ; //mentioning menu ids s
 
 
                         <div class="row ">
+                           
                             <div class="col-12 d-flex justify-content-center">
                                 @yield('content')
                             </div>

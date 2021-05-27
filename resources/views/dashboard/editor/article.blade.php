@@ -9,6 +9,9 @@
     <link href="{{ asset('summ/summernote-bs4.css') }}" rel="stylesheet">
 
 @endsection
+
+
+
 @section('searchpanel')
 
 @endsection
@@ -82,7 +85,6 @@
   			});
   		</script>
 @endsection
-
 
 
 

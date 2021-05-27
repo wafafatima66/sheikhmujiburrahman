@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\TwoFactorCode;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Authy\AuthyApi;
+// use App\Http\Controllers\Auth\Request;
+use Illuminate\Http\Request;
+
 
 class LoginController extends Controller
 {
@@ -37,7 +40,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        // $this->middleware('guest')->except('logout');
     }
 
     // protected function authenticated(Request $request, $user)
@@ -47,4 +50,10 @@ class LoginController extends Controller
     //     \session(['isVerified' => false]);
     //     return \redirect('verify');
     // }
+
+    protected function authenticated(Request $request, $user)
+{
+    $user->generateTwoFactorCode();
+    $user->notify(new TwoFactorCode());
+}
 }

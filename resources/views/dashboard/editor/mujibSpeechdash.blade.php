@@ -28,7 +28,7 @@
 
   <div class="form-group">
       <label for="exampleInputEmail1">Description</label>
-      <textarea name="dis" cols="30" rows="10" class="form-control" placeholder="Write Here">{{$allProducts->dis}}</textarea>
+      <textarea name="dis" cols="30" rows="10" class="form-control" id="summernote" placeholder="Write Here">{{$allProducts->dis}}</textarea>
     </div>
 
     <div class="form-group">

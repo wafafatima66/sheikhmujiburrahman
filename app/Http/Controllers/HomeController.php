@@ -698,16 +698,49 @@ class HomeController extends Controller
         return view('dashboard/addUser');
     }
 
+    // function showvalue(){
+        // $authy_api = new AuthyApi(getenv("AUTHY_SECRET"));
+        // $authy_user = $authy_api->registerUser('wfatima203@gmail.com', '01789040491', '880');
+        
+        // echo $authy_user->id();
+
+        // if($authy_user->ok()) {
+        //     printf($authy_user->id());
+        // } else {
+        //     foreach($authy_user->errors() as $field => $message) {
+        //         printf("$field = $message\n");
+        //     }
+        // }
+
+    //     $authy = new \Authy\AuthyApi(getenv("AUTHY_SECRET"));
+    //     $authyUser = $authy->registerUser(
+    //         'wfatima203@gmail.com', '01789040491', '880',
+    //         true
+    //     );
+    
+    //     if ($authyUser->ok()) {
+    //         $authy_id = $authyUser->id();
+    //         echo $authy_id;
+    //     } else {
+    //         $errors = [];
+    //         foreach ($authyUser->errors() as $field => $value) {
+    //             array_push($errors, $field.": ". $value);
+    //         }
+            
+    //     }
+    // }
+
     function storeUser(Request $request)
     {
-        // $authy_api = new AuthyApi(getenv("AUTHY_SECRET"));
-        // $user = $authy_api->registerUser($request['email'], $request['phone'], $request['country_code']);
+        $authy_api = new AuthyApi(getenv("AUTHY_SECRET"));
+        $user = $authy_api->registerUser($request['email'], $request['phone'], $request['country_code']);
+       
 
         $request->validate([
             'name' => 'required',
             'email' => 'required',
             'password' => 'required|confirmed',
-            'phone' => ['required', 'string'],
+            'phone' => 'required',
             'photo' => 'required'
         ]);
 
@@ -725,7 +758,7 @@ class HomeController extends Controller
             'password' => Hash::make($request->password),
             'phone' => $request->phone,
             'photo' => $request->photo,
-            // 'authy_id' => $authy_user->id()
+            'authy_id' => $user->id()
 
         ]);
 
@@ -756,9 +789,9 @@ class HomeController extends Controller
         User::find($request->id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'phone' => $request->phone,
-            'photo' => $request->photo
+            'phone' => $request->phone
         ]);
+
         if ($request->hasFile('photo')) {
             $image_name = User::find($request->id)->photo;
             $photo = $request->photo ; 

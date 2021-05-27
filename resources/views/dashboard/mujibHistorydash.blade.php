@@ -20,6 +20,40 @@ Bongobondhu History
 @section('content')
 
 <div class="container" style="width: 100%">
+
+    @php
+
+    $permissions = App\Permission::where('user_id', Auth::user()->id)->get();
+
+    $modules = [];
+
+    foreach($permissions as $permission){
+
+    $modules[] = $permission->module_id;
+    }
+
+    $modules = array_unique($modules);
+
+    $admin = 2 ;
+    $articleList = 2 ;
+    $addArticle = 3 ;
+    $logo= 4 ;
+    $firstPage = 5 ;
+    $banner = 6 ;
+    $historySettings = 7 ;
+    $mujibHistorydash = 8 ;
+    $mujibLifedash = 9 ;
+    $mujibLifedashAdd = 10;
+    $mujibSpeechdash = 11;
+    $mujibSpeechdashAdd = 12;
+    $mujibPublicationdash = 13;
+    $knowmoredash = 14;
+    $addPhoto= 15;
+
+    @endphp
+
+    @if(in_array($mujibHistorydash, $modules) || Auth::user()->id == $admin)
+
     <div class="row">
 
         <div class="col-lg-6">
@@ -33,7 +67,7 @@ Bongobondhu History
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Description</label>
-                    <textarea name="dis" cols="15" rows="10" class="form-control" placeholder="Write Here"></textarea>
+                    <textarea id="summernote" name="dis" cols="15" rows="10" class="form-control" placeholder="Write Here"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -98,7 +132,18 @@ Bongobondhu History
             placeholder: 'Add Notice',
             tooltip: false
         })
-    });
+});
 
 </script>
+
+@else
+
+<div class="container">
+
+    <div class="alert alert-danger">NO ACCESS ! </div>
+
+</div>
+
+@endif
+
 @endsection

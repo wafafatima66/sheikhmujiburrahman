@@ -107,6 +107,7 @@
                                     border-radius: 0;
                                     width: 100%;
                                     filter: grayscale(100%);
+                                    object-fit: cover;
                                 }
                                 .img-thumbnail:hover{
                                     filter: drop-shadow(8px 8px 10px gray);
