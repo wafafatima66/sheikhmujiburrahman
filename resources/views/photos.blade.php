@@ -76,58 +76,61 @@
                             integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
                             crossorigin="anonymous">
 
-                            <style type="text/css">
-                                .btn:focus,
-                                .btn:active,
-                                button:focus,
-                                button:active {
-                                    outline: none !important;
-                                    box-shadow: none !important;
-                                }
-                        
-                                #image-gallery .modal-footer {
-                                    display: block;
-                                }
-                        
-                                .thumb {
-                                   
-                                }
-                                .thumbnail{
-                                    height: 200px;
-                                }
-                        
-                                .title{
-                                    font-size: 4rem;
-                                }
-                                .img-thumbnail{
-                                    height: 100%;
-                                    padding:0; 
-                                    background-color: #fff;
-                                    border: none ;
-                                    border-radius: 0;
-                                    width: 100%;
-                                    filter: grayscale(100%);
-                                    object-fit: cover;
-                                }
-                                .img-thumbnail:hover{
-                                    filter: drop-shadow(8px 8px 10px gray);
-                                }
-                        
-                            </style>
+<style type="text/css">
+    .btn:focus,
+    .btn:active,
+    button:focus,
+    button:active {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    #image-gallery .modal-footer {
+        display: block;
+    }
+
+    .thumb {
+        height: 250px;
+    }
+    .thumbnail{
+        height: 100%;
+    }
+
+    .title{
+        font-size: 4rem;
+    }
+    .img-thumbnail{
+        height: 100%;
+        padding:0; 
+        background-color: #fff;
+        border: none ;
+        border-radius: 0;
+        width: 100%;
+        filter: grayscale(100%);
+        object-fit: cover;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .img-thumbnail:hover{
+        filter: drop-shadow(8px 8px 10px gray);
+    }
+    #image-gallery-image{
+        height: 100%;
+        padding: 0;
+        object-fit: cover;
+    }
+
+</style>
 
                         <div class="container" >
 
                             <h2 class=" text-center title">Photo Gallery</h2>
 
-                            <div class="row">
+                            <div class="row " >
                                
-                                <div class="row">
-
-                                    
 
                                     @forelse ($allPhotos as $photo)
 
-                                    <div class="col-lg-3 col-md-4 col-sm-6 thumb mt-5">
+                                    <div class="col-lg-4 col-md-4 col-sm-6 thumb mt-3">
                                         <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
                                             data-image="{{asset('assets/images/photoGallery/'.$photo->photo_link)}}"
                                             data-target="#image-gallery">
@@ -140,8 +143,7 @@
 
                                     @endforeach
 
-                                </div>
-
+                                
 
                                 <script type="text/javascript">
                                     let modalId = $('#image-gallery');
@@ -246,16 +248,34 @@
                                     aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
-                                            <div class="modal-header">
+
+                                            {{-- <div class="modal-header">
                                                 <h4 class="modal-title" id="image-gallery-title"></h4>
                                                 <button type="button" class="close" data-dismiss="modal"><span
                                                         aria-hidden="true">×</span><span class="sr-only">Close</span>
                                                 </button>
-                                            </div>
+                                            </div> --}}
                                             <div class="modal-body">
-                                                <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+
+                                                
+                                                    <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+
+                                                    <div class="d-flex justify-content-center mt-2">
+                                                        <button type="button" class="btn btn-secondary float-left mr-2"
+                                                            id="show-previous-image"><i class="fa fa-arrow-left"></i>
+                                                        </button>
+        
+                                                        <button type="button" id="show-next-image"
+                                                            class="btn btn-secondary float-right"><i
+                                                                class="fa fa-arrow-right"></i>
+                                                        </button>
+                                                    </div>
+
+                                                    
+                                            
+                                                
                                             </div>
-                                            <div class="modal-footer">
+                                            {{-- <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary float-left"
                                                     id="show-previous-image"><i class="fa fa-arrow-left"></i>
                                                 </button>
@@ -264,7 +284,7 @@
                                                     class="btn btn-secondary float-right"><i
                                                         class="fa fa-arrow-right"></i>
                                                 </button>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
